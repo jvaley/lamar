@@ -1,0 +1,556 @@
+{
+    "translations": {
+        "es": {
+            "nav_start": "INICIO",
+            "nav_packages": "PAQUETES",
+            "hero_title": "EXPLORA EL<br><span class='text-bayau'>MUNDO</span>",
+            "hero_subtitle": "Somos expertos en crear memorias. Desde las playas de Cancún hasta los rincones de Europa.",
+            "hero_btn_pkgs": "VER TODOS LOS PAQUETES",
+            "hero_btn_contact": "CONTACTAR AHORA",
+            "featured_title": "DESTINOS DESTACADOS",
+            "gallery_title": "GALERÍA DE VIAJEROS",
+            "gallery_subtitle": "Encuéntranos en Instagram como",
+            "form_title": "¿PLANEAMOS TU PRÓXIMO VIAJE?",
+            "form_name": "Tu Nombre",
+            "form_name_full": "Nombre completo",
+            "form_phone": "Tu WhatsApp",
+            "form_dest": "¿A dónde quieres ir?",
+            "form_submit": "SOLICITAR COTIZACIÓN POR WHATSAPP",
+            "pkg_tab_1": "Detalles e Inclusiones",
+            "pkg_tab_2": "Itinerario Sugerido",
+            "pkg_tab_3": "Ubicación del Destino",
+            "pkg_price_label": "Inversión desde",
+            "pkg_custom": "Personaliza tu experiencia",
+            "pkg_btn_reserve": "RESERVAR POR WHATSAPP",
+            "footer_desc": "Hacemos realidad el viaje de tus sueños con la mejor asesoría personalizada de Guatemala.",
+            "footer_contact": "CONTACTO DIRECTO",
+            "footer_follow": "SÍGUENOS",
+            "footer_copy": "Guatemala • Viajes La Mar © 2026 • Expertos en Experiencias Seguras",
+            "more_details": "VER DETALLES"
+        },
+        "en": {
+            "nav_start": "HOME",
+            "nav_packages": "PACKAGES",
+            "hero_title": "EXPLORE THE<br><span class='text-bayau'>WORLD</span>",
+            "hero_subtitle": "We are memory-making experts. From Cancun's beaches to Europe's hidden gems.",
+            "hero_btn_pkgs": "VIEW ALL PACKAGES",
+            "hero_btn_contact": "CONTACT NOW",
+            "featured_title": "FEATURED DESTINATIONS",
+            "gallery_title": "TRAVELER GALLERY",
+            "gallery_subtitle": "Find us on Instagram at",
+            "form_title": "PLAN YOUR NEXT TRIP?",
+            "form_name": "Your Name",
+            "form_name_full": "Full Name",
+            "form_phone": "Your WhatsApp",
+            "form_dest": "Where do you want to go?",
+            "form_submit": "REQUEST QUOTE VIA WHATSAPP",
+            "pkg_tab_1": "Details & Inclusions",
+            "pkg_tab_2": "Suggested Itinerary",
+            "pkg_tab_3": "Destination Location",
+            "pkg_price_label": "Investment from",
+            "pkg_custom": "Customize your experience",
+            "pkg_btn_reserve": "RESERVE VIA WHATSAPP",
+            "footer_desc": "We turn your dream trip into reality with the best personalized travel consulting in Guatemala.",
+            "footer_contact": "DIRECT CONTACT",
+            "footer_follow": "FOLLOW US",
+            "footer_copy": "Guatemala • Viajes La Mar © 2026 • Secure Experience Experts",
+            "more_details": "VIEW DETAILS"
+        }
+    },
+    "packagesData": {
+        "es": [
+            {
+                "id": "cancun",
+                "nombre": "CANCÚN",
+                "tagline": "Caribe Mexicano • All Inclusive",
+                "precio": "Q.5,499.00",
+                "mapEmbed": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d238133.15236423!2d-86.95388647575305!3d21.121323215162445!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f4c2b05aef1157f%3A0xec60a6a61c62f210!2sCanc%C3%BAn%2C%20Quintana%20Roo%2C%20M%C3%A9xico!5e0!3m2!1ses!2sgt!4v1709325000000!5m2!1ses!2sgt",
+                "incluye": [
+                    "Vuelos GUA-CUN-GUA",
+                    "Hospedaje 5 estrellas",
+                    "Alimentación completa",
+                    "Bebidas ilimitadas",
+                    "Seguro de viaje"
+                ],
+                "itinerario": [
+                    {
+                        "t": "Llegada",
+                        "d": "Traslado al hotel y tarde libre."
+                    },
+                    {
+                        "t": "Relax",
+                        "d": "Día de playa y snorkel."
+                    }
+                ]
+            },
+            {
+                "id": "roatan",
+                "nombre": "ROATÁN",
+                "tagline": "Honduras • Paraíso Turquesa",
+                "precio": "Q.3,850.00",
+                "mapEmbed": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d245648.514652234!2d-86.533!3d16.32!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f69b14c330f8133%3A0xe48721c5f359c629!2sRoat%C3%A1n!5e0!3m2!1ses!2sgt!4v1709325000000!5m2!1ses!2sgt",
+                "incluye": [
+                    "Ferry o Vuelo",
+                    "Hotel frente al mar",
+                    "Desayunos",
+                    "Kayaks liberados"
+                ],
+                "itinerario": [
+                    {
+                        "t": "Check-in",
+                        "d": "Cóctel de bienvenida."
+                    },
+                    {
+                        "t": "Mar",
+                        "d": "Día en West Bay."
+                    }
+                ]
+            },
+            {
+                "id": "europa",
+                "nombre": "EUROPA",
+                "tagline": "Clásico • 15 Días",
+                "precio": "Q.22,400.00",
+                "mapEmbed": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d167998.1080337305!2d2.27701984166888!3d48.858260203533604!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66e1f06e2b70f%3A0x40b82c3688c9460!2sPar%C3%ADs%2C%20Francia!5e0!3m2!1ses!2sgt!4v1709325000000!5m2!1ses!2sgt",
+                "incluye": [
+                    "Vuelos",
+                    "Hoteles céntricos",
+                    "Guía en español",
+                    "Museos incluidos"
+                ],
+                "itinerario": [
+                    {
+                        "t": "Madrid",
+                        "d": "Tour por la ciudad."
+                    },
+                    {
+                        "t": "París",
+                        "d": "Crucero por el Sena."
+                    }
+                ]
+            }
+        ],
+        "en": [
+            {
+                "id": "cancun",
+                "nombre": "CANCUN",
+                "tagline": "Mexican Caribbean • All Inclusive",
+                "precio": "$715.00",
+                "mapEmbed": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d238133.15236423!2d-86.95388647575305!3d21.121323215162445!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f4c2b05aef1157f%3A0xec60a6a61c62f210!2sCanc%C3%BAn%2C%20Quintana%20Roo%2C%20M%C3%A9xico!5e0!3m2!1ses!2sgt!4v1709325000000!5m2!1ses!2sgt",
+                "incluye": [
+                    "Flights GUA-CUN-GUA",
+                    "5-Star Resort",
+                    "All meals included",
+                    "Unlimited drinks",
+                    "Travel insurance"
+                ],
+                "itinerario": [
+                    {
+                        "t": "Arrival",
+                        "d": "Hotel transfer and free time."
+                    },
+                    {
+                        "t": "Relax",
+                        "d": "Beach day and snorkeling."
+                    }
+                ]
+            },
+            {
+                "id": "roatan",
+                "nombre": "ROATAN",
+                "tagline": "Honduras • Turquoise Paradise",
+                "precio": "$500.00",
+                "mapEmbed": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d245648.514652234!2d-86.533!3d16.32!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f69b14c330f8133%3A0xe48721c5f359c629!2sRoat%C3%A1n!5e0!3m2!1ses!2sgt!4v1709325000000!5m2!1ses!2sgt",
+                "incluye": [
+                    "Ferry or Flight",
+                    "Beachfront hotel",
+                    "Daily Breakfast",
+                    "Free Kayaks"
+                ],
+                "itinerario": [
+                    {
+                        "t": "Check-in",
+                        "d": "Welcome cocktail."
+                    },
+                    {
+                        "t": "Sea",
+                        "d": "Day at West Bay."
+                    }
+                ]
+            },
+            {
+                "id": "europa",
+                "nombre": "EUROPE",
+                "tagline": "Classic • 15 Days",
+                "precio": "$2,915.00",
+                "mapEmbed": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d167998.1080337305!2d2.27701984166888!3d48.858260203533604!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66e1f06e2b70f%3A0x40b82c3688c9460!2sPar%C3%ADs%2C%20Francia!5e0!3m2!1ses!2sgt!4v1709325000000!5m2!1ses!2sgt",
+                "incluye": [
+                    "Flights included",
+                    "Central hotels",
+                    "Expert guide",
+                    "Museums included"
+                ],
+                "itinerario": [
+                    {
+                        "t": "Madrid",
+                        "d": "City tour."
+                    },
+                    {
+                        "t": "Paris",
+                        "d": "Seine cruise."
+                    }
+                ]
+            }
+        ]
+    },
+    "imagesMap": {
+        "cancun": "https://images.unsplash.com/photo-1544918877-464d13bb9151?auto=format&fit=crop&q=80&w=1200",
+        "roatan": "https://images.unsplash.com/photo-1548574505-5e239809ee19?auto=format&fit=crop&q=80&w=1200",
+        "europa": "https://images.unsplash.com/photo-1493397212122-2b85edf8106b?auto=format&fit=crop&q=80&w=1200",
+        "machupicchu": "https://images.unsplash.com/photo-1587518904101-418939ac4056?auto=format&fit=crop&q=80&w=1200",
+        "panama": "https://images.unsplash.com/photo-1533219057257-4bb9ed5d2cc6?auto=format&fit=crop&q=80&w=1200",
+        "colombia": "https://images.unsplash.com/photo-1583359665792-6d2c0b43bb64?auto=format&fit=crop&q=80&w=1200",
+        "xela": "https://images.unsplash.com/photo-1533219057257-4bb9ed5d2cc6?auto=format&fit=crop&q=80&w=1200",
+        "quiche": "https://images.unsplash.com/photo-1533219057257-4bb9ed5d2cc6?auto=format&fit=crop&q=80&w=1200"
+    },
+    "scheduledTrips": [
+        {
+            "id": "promo-peru",
+            "categoria": "grupal",
+            "destino": {
+                "es": "MACHU PICCHU",
+                "en": "MACHU PICCHU"
+            },
+            "fecha": {
+                "es": "15 MAR 2026",
+                "en": "MAR 15 2026"
+            },
+            "noches": 5,
+            "tipo": {
+                "es": "Cultural",
+                "en": "Cultural"
+            },
+            "precio": {
+                "es": "Q.8,900.00",
+                "en": "$1,150.00"
+            },
+            "estado": "available",
+            "mapEmbed": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15582.0!2d-72.545!3d-13.163!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x916d9a5b3a8e9e9f%3A0x6b8b0e5d5e5e5e5e!2sMachu%20Picchu!5e0!3m2!1ses!2sgt!4v1709325000000!5m2!1ses!2sgt",
+            "tag": {
+                "es": "EXPLORACIÓN INCA",
+                "en": "INCA EXPLORATION"
+            },
+            "cuposLibres": 8,
+            "imagen": "https://images.unsplash.com/photo-1587518904101-418939ac4056?auto=format&fit=crop&q=80&w=1200",
+            "incluye": {
+                "es": [
+                    "Vuelos",
+                    "Entrada a ciudadela",
+                    "Tren de lujo",
+                    "Guía políglota"
+                ],
+                "en": [
+                    "Flights",
+                    "Citadel entrance",
+                    "Luxury train",
+                    "Polyglot guide"
+                ]
+            },
+            "itinerario": {
+                "es": [
+                    {
+                        "t": "Cusco",
+                        "d": "Aclimatación y tarde de té."
+                    },
+                    {
+                        "t": "Valle Sagrado",
+                        "d": "Visita a mercados locales."
+                    },
+                    {
+                        "t": "La Ciudadela",
+                        "d": "Tour privado en Machu Picchu."
+                    }
+                ],
+                "en": [
+                    {
+                        "t": "Cusco",
+                        "d": "Acclimatization and tea afternoon."
+                    },
+                    {
+                        "t": "Sacred Valley",
+                        "d": "Local markets visit."
+                    },
+                    {
+                        "t": "The Citadel",
+                        "d": "Private tour in Machu Picchu."
+                    }
+                ]
+            },
+            "Acciones": ""
+        },
+        {
+            "id": "promo-cancun",
+            "categoria": "promocion",
+            "destino": {
+                "es": "CANCÚN GRUPAL",
+                "en": "GROUP CANCUN"
+            },
+            "fecha": {
+                "es": "10 ABR 2026",
+                "en": "APR 10 2026"
+            },
+            "noches": 4,
+            "tipo": {
+                "es": "Relajación",
+                "en": "Relaxation"
+            },
+            "precio": {
+                "es": "Q.5,200.00",
+                "en": "$675.00"
+            },
+            "estado": "few",
+            "mapEmbed": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d238133.15236423!2d-86.95388647575305!3d21.121323215162445!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f4c2b05aef1157f%3A0xec60a6a61c62f210!2sCanc%C3%BAn%2C%20Quintana%20Roo%2C%20M%C3%A9xico!5e0!3m2!1ses!2sgt!4v1709325000000!5m2!1ses!2sgt",
+            "tag": {
+                "es": "VERANO 2026",
+                "en": "SUMMER 2026"
+            },
+            "cuposLibres": 3,
+            "imagen": "https://images.unsplash.com/photo-1544918877-464d13bb9151?auto=format&fit=crop&q=80&w=1200",
+            "incluye": {
+                "es": [
+                    "Vuelo directo",
+                    "Hotel All-Inclusive",
+                    "Traslados",
+                    "Catamarán"
+                ],
+                "en": [
+                    "Direct flight",
+                    "All-Inclusive Hotel",
+                    "Transfers",
+                    "Catamaran"
+                ]
+            },
+            "itinerario": {
+                "es": [
+                    {
+                        "t": "Llegada",
+                        "d": "Bienvenida tropical."
+                    },
+                    {
+                        "t": "Isla Mujeres",
+                        "d": "Fiesta en catamarán."
+                    }
+                ],
+                "en": [
+                    {
+                        "t": "Arrival",
+                        "d": "Tropical welcome."
+                    },
+                    {
+                        "t": "Isla Mujeres",
+                        "d": "Catamaran party."
+                    }
+                ]
+            },
+            "Acciones": ""
+        },
+        {
+            "id": "promo-panama",
+            "categoria": "promocion",
+            "destino": {
+                "es": "PANAMÁ & COMPRAS",
+                "en": "PANAMA & SHOPPING"
+            },
+            "fecha": {
+                "es": "20 MAY 2026",
+                "en": "MAY 20 2026"
+            },
+            "noches": 3,
+            "tipo": {
+                "es": "Compras",
+                "en": "Shopping"
+            },
+            "precio": {
+                "es": "Q.4,100.00",
+                "en": "$530.00"
+            },
+            "estado": "available",
+            "mapEmbed": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126130.2!2d-79.5!3d8.9!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8faca8f8a8f8a8f8%3A0x6b8b0e5d5e5e5e5e!2sPanam%C3%A1%2C%20Panam%C3%A1!5e0!3m2!1ses!2sgt!4v1709325000000!5m2!1ses!2sgt",
+            "tag": {
+                "es": "OFERTAS 2026",
+                "en": "OFFERS 2026"
+            },
+            "cuposLibres": 12,
+            "imagen": "https://images.unsplash.com/photo-1533219057257-4bb9ed5d2cc6?auto=format&fit=crop&q=80&w=1200",
+            "incluye": {
+                "es": [
+                    "Vuelos",
+                    "Hotel Ciudad",
+                    "Tour Canal",
+                    "Traslados Compras"
+                ],
+                "en": [
+                    "Flights",
+                    "City Hotel",
+                    "Canal Tour",
+                    "Shopping Transfers"
+                ]
+            },
+            "itinerario": {
+                "es": [
+                    {
+                        "t": "Canal",
+                        "d": "Visita al centro de visitantes Miraflores."
+                    },
+                    {
+                        "t": "Albrook",
+                        "d": "Día completo de compras."
+                    }
+                ],
+                "en": [
+                    {
+                        "t": "Canal",
+                        "d": "Visit to Miraflores visitor center."
+                    },
+                    {
+                        "t": "Albrook",
+                        "d": "Full day of shopping."
+                    }
+                ]
+            },
+            "Acciones": ""
+        },
+        {
+            "id": "promo-xela",
+            "categoria": "grupal",
+            "destino": {
+                "es": "XELA",
+                "en": "XELA"
+            },
+            "fecha": {
+                "es": "26 JUN 2026",
+                "en": "JUN 26 2026"
+            },
+            "noches": 3,
+            "tipo": {
+                "es": "Compras",
+                "en": "Shopping"
+            },
+            "precio": {
+                "es": "Q.4,100.00",
+                "en": "$530.00"
+            },
+            "estado": "available",
+            "mapEmbed": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15426.0!2d-91.516!3d14.83!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x858e9f8a8f8a8f8%3A0x6b8b0e5d5e5e5e5e!2sQuetzaltenango!5e0!3m2!1ses!2sgt!4v1709325000000!5m2!1ses!2sgt",
+            "tag": {
+                "es": "OFERTAS 2026",
+                "en": "OFFERS 2026"
+            },
+            "cuposLibres": 12,
+            "imagen": "https://images.unsplash.com/photo-1533219057257-4bb9ed5d2cc6?auto=format&fit=crop&q=80&w=1200",
+            "incluye": {
+                "es": [
+                    "Vuelos",
+                    "Hotel Ciudad",
+                    "Tour Canal",
+                    "Traslados Compras"
+                ],
+                "en": [
+                    "Flights",
+                    "City Hotel",
+                    "Canal Tour",
+                    "Shopping Transfers"
+                ]
+            },
+            "itinerario": {
+                "es": [
+                    {
+                        "t": "Canal",
+                        "d": "Visita al centro de visitantes Miraflores."
+                    },
+                    {
+                        "t": "Albrook",
+                        "d": "Día completo de compras."
+                    }
+                ],
+                "en": [
+                    {
+                        "t": "Canal",
+                        "d": "Visit to Miraflores visitor center."
+                    },
+                    {
+                        "t": "Albrook",
+                        "d": "Full day of shopping."
+                    }
+                ]
+            },
+            "Acciones": ""
+        },
+        {
+            "id": "promo-quiche",
+            "categoria": "grupal",
+            "destino": {
+                "es": "QUICHE",
+                "en": "QUICHE"
+            },
+            "fecha": {
+                "es": "26 JUN 2026",
+                "en": "JUN 26 2026"
+            },
+            "noches": 5,
+            "tipo": {
+                "es": "Cultural",
+                "en": "Cultural"
+            },
+            "precio": {
+                "es": "Q.2,000.00",
+                "en": "$530.00"
+            },
+            "estado": "available",
+            "mapEmbed": "https://maps.app.goo.gl/YyFTLrobMNyXSGsDA",
+            "tag": {
+                "es": "OFERTAS 2026",
+                "en": "OFFERS 2026"
+            },
+            "cuposLibres": 12,
+            "imagen": "https://images.unsplash.com/photo-1533219057257-4bb9ed5d2cc6?auto=format&fit=crop&q=80&w=1200",
+            "incluye": {
+                "es": [
+                    "Vuelos",
+                    "Hotel Ciudad",
+                    "Tour Canal",
+                    "Traslados Compras"
+                ],
+                "en": [
+                    "Flights",
+                    "City Hotel",
+                    "Canal Tour",
+                    "Shopping Transfers"
+                ]
+            },
+            "itinerario": {
+                "es": [
+                    {
+                        "t": "Canal",
+                        "d": "Visita al centro de visitantes Miraflores."
+                    },
+                    {
+                        "t": "Albrook",
+                        "d": "Día completo de compras."
+                    }
+                ],
+                "en": [
+                    {
+                        "t": "Canal",
+                        "d": "Visit to Miraflores visitor center."
+                    },
+                    {
+                        "t": "Albrook",
+                        "d": "Full day of shopping."
+                    }
+                ]
+            },
+            "Acciones": ""
+        }
+    ]
+}

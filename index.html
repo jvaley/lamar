@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Cabeceras de seguridad -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+
+    <!-- SEO -->
+    <title>Viajes La Mar | Expertos en Memorias</title>
+    <meta name="description"
+        content="Agencia de viajes certificada en Guatemala. Diseñamos experiencias personalizadas con asistencia 24/7 en cada rincón del mundo.">
+
+    <!-- Tailwind CSS (utilidades) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=League+Gothic&family=Montserrat:wght@300;400;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Iconos Lucide -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- ✅ Estilos propios (separados del HTML) -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body class="bg-slate-50 text-slate-800 select-none md:select-text overflow-x-hidden">
+
+    <!-- — Blobs decorativos de fondo (UX Premium) — -->
+    <div class="fixed inset-0 pointer-events-none z-[-1] overflow-hidden">
+        <div
+            class="absolute top-[-10%] left-[-10%] w-[40vw] h-[40vw] bg-bayau/5 rounded-full blur-[100px] animate-pulse">
+        </div>
+        <div
+            class="absolute bottom-[-10%] right-[-10%] w-[50vw] h-[50vw] bg-coronation/[0.03] rounded-full blur-[120px]">
+        </div>
+    </div>
+
+    <!-- =====================================================
+         BOTÓN FLOTANTE DE WHATSAPP
+    ===================================================== -->
+    <a href="https://wa.me/50223764607" target="_blank" rel="noopener noreferrer" class="whatsapp-float"
+        aria-label="Contactar por WhatsApp">
+        <i data-lucide="message-circle"></i>
+    </a>
+
+    <!-- =====================================================
+         HEADER / NAVEGACIÓN
+    ===================================================== -->
+    <header id="main-header" class="bg-white sticky top-0 z-50 shadow-md transition-all duration-300">
+        <div id="header-container"
+            class="container mx-auto px-4 h-24 flex justify-between items-center transition-all duration-300">
+
+            <!-- Logo -->
+            <div class="flex items-center cursor-pointer h-full py-2" onclick="showPage('inicio')">
+                <img src="https://viajeslamar.wordpress.com/wp-content/uploads/2026/02/whatsapp-image-2026-02-24-at-18.57.52.jpeg"
+                    alt="Logo Viajes La Mar" class="h-full w-auto object-contain">
+            </div>
+
+            <!-- Navegación principal -->
+            <nav class="hidden lg:flex items-center space-x-6 lg:space-x-8 font-bold text-[11px] tracking-[0.2em] uppercase"
+                aria-label="Navegación principal">
+                <button onclick="showPage('inicio')" id="nav-inicio" data-i18n="nav_start"
+                    class="nav-link-active text-coronation hover:text-bayau transition">
+                    INICIO
+                </button>
+                <button onclick="showPage('paquetes')" id="nav-paquetes" data-i18n="nav_packages"
+                    class="text-coronation hover:text-bayau transition">
+                    PAQUETES
+                </button>
+                <button onclick="showPage('grupales')" id="nav-grupales" data-i18n="cal_tab_grupal"
+                    class="text-coronation hover:text-bayau transition">
+                    VIAJES GRUPALES
+                </button>
+                <button onclick="showPage('promociones')" id="nav-promociones" data-i18n="cal_tab_promo"
+                    class="text-coronation hover:text-bayau transition">
+                    PROMOCIONES
+                </button>
+            </nav>
+
+            <!-- Selector de idioma — Estilo Pill Premium -->
+            <div class="flex items-center space-x-4">
+                <div class="relative flex items-center bg-slate-100 rounded-full p-1 w-24 h-9 shadow-inner overflow-hidden"
+                    role="group" aria-label="Seleccionar idioma">
+                    <!-- Fondo deslizante dinámico (controlado por CSS activo) -->
+                    <div id="lang-indicator"
+                        class="absolute h-7 w-11 bg-coronation rounded-full transition-all duration-300 shadow-md transform translate-x-0">
+                    </div>
+
+                    <button onclick="setLanguage('es')" id="lang-es"
+                        class="relative z-10 flex-1 text-[10px] font-black transition-colors duration-300 text-white">ES</button>
+                    <button onclick="setLanguage('en')" id="lang-en"
+                        class="relative z-10 flex-1 text-[10px] font-black transition-colors duration-300 text-slate-400">EN</button>
+                </div>
+                <div class="flex items-center space-x-4 border-l pl-4 border-slate-200">
+                    <a href="https://www.instagram.com/lamar.guate" target="_blank" rel="noopener noreferrer"
+                        aria-label="Instagram" class="text-coronation hover:text-bayau transition">
+                        <i data-lucide="instagram" class="w-4 h-4"></i>
+                    </a>
+                    <a href="https://www.facebook.com/lamar.guate" target="_blank" rel="noopener noreferrer"
+                        aria-label="Facebook" class="text-coronation hover:text-bayau transition">
+                        <i data-lucide="facebook" class="w-4 h-4"></i>
+                    </a>
+                </div>
+
+                <!-- Botón Menu Móvil (MD:HIDDEN) -->
+                <button onclick="toggleMobileMenu()"
+                    class="md:hidden text-coronation p-2 transition-transform hover:scale-110" aria-label="Abrir menú">
+                    <i data-lucide="menu" class="w-7 h-7"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- MENU MÓVIL (Solid Midnight Drawer) — Máxima Visibilidad -->
+        <div id="mobile-menu"
+            class="fixed inset-0 z-[100] transform translate-x-full transition-transform duration-500 ease-in-out md:hidden flex justify-end">
+            <!-- Overlay oscuro semi-transparente -->
+            <div class="absolute inset-0 bg-black/40" onclick="toggleMobileMenu()"></div>
+
+            <!-- Contenido del Drawer (Sólido Coronation) -->
+            <div
+                class="relative w-[85%] max-w-[320px] h-full bg-coronation shadow-2xl flex flex-col border-l border-white/10">
+                <!-- Header del menú (Blanco Sólido para el Logo) -->
+                <div class="flex justify-between items-center p-6 bg-white border-b border-slate-100">
+                    <img src="https://viajeslamar.wordpress.com/wp-content/uploads/2026/02/whatsapp-image-2026-02-24-at-18.57.52.jpeg"
+                        alt="Logo Viajes La Mar" class="h-10 w-auto object-contain">
+                    <button onclick="toggleMobileMenu()"
+                        class="text-coronation bg-slate-100 p-2 rounded-xl hover:bg-slate-200 transition-colors">
+                        <i data-lucide="x" class="w-8 h-8"></i>
+                    </button>
+                </div>
+
+                <!-- Enlaces de Navegación -->
+                <nav class="flex-1 flex flex-col pt-12 px-8 space-y-8">
+                    <button onclick="showPage('inicio'); toggleMobileMenu();"
+                        class="text-white text-4xl font-league text-left tracking-[0.1em] hover:text-bayau transition-all underline-offset-8">
+                        INICIO
+                    </button>
+                    <button onclick="showPage('paquetes'); toggleMobileMenu();"
+                        class="text-white text-4xl font-league text-left tracking-[0.1em] hover:text-bayau transition-all underline-offset-8">
+                        PAQUETES
+                    </button>
+                    <button onclick="showPage('grupales'); toggleMobileMenu();"
+                        class="text-white text-4xl font-league text-left tracking-[0.1em] hover:text-bayau transition-all underline-offset-8"
+                        data-i18n="cal_tab_grupal">
+                        VIAJES GRUPALES
+                    </button>
+                    <button onclick="showPage('promociones'); toggleMobileMenu();"
+                        class="text-white text-4xl font-league text-left tracking-[0.1em] hover:text-bayau transition-all underline-offset-8"
+                        data-i18n="cal_tab_promo">
+                        PROMOCIONES
+                    </button>
+                </nav>
+
+                <!-- Footer del menú -->
+                <div class="p-10 border-t border-white/5 bg-black/10">
+                    <span
+                        class="text-[10px] text-slate-400 font-bold tracking-[0.5em] block mb-6 uppercase">CONTÁCTANOS</span>
+                    <div class="flex space-x-6">
+                        <a href="https://www.instagram.com/viajeslamar_gt" target="_blank"
+                            class="w-12 h-12 rounded-2xl bg-white/5 flex items-center justify-center text-white hover:bg-bayau transition-colors">
+                            <i data-lucide="instagram" class="w-6 h-6"></i>
+                        </a>
+                        <a href="https://www.facebook.com/viajeslamar" target="_blank"
+                            class="w-12 h-12 rounded-2xl bg-white/5 flex items-center justify-center text-white hover:bg-bayau transition-colors">
+                            <i data-lucide="facebook" class="w-6 h-6"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- =====================================================
+         PÁGINA: INICIO
+    ===================================================== -->
+    <div id="page-inicio" class="page-fade">
+
+        <!-- Hero -->
+        <section class="relative min-h-[700px] md:h-[85vh] flex items-center overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=2073&auto=format&fit=crop"
+                class="absolute inset-0 w-full h-full object-cover" alt="Playa paradisiaca" loading="eager">
+            <div class="absolute inset-0 bg-gradient-to-r from-coronation/90 via-coronation/40 to-transparent"></div>
+
+            <div class="container mx-auto px-4 relative z-10 text-white">
+                <h1 class="font-league text-5xl md:text-9xl mb-4 leading-[0.85] tracking-tighter uppercase"
+                    data-i18n="hero_title">
+                    EXPLORA EL<br><span class="text-bayau">MUNDO</span>
+                </h1>
+                <p class="text-lg md:text-2xl font-light mb-8 max-w-xl opacity-90" data-i18n="hero_subtitle">
+                    Somos expertos en crear memorias. Desde las playas de Cancún hasta los rincones de Europa.
+                </p>
+                <div class="flex flex-wrap gap-4">
+                    <button onclick="showPage('paquetes')"
+                        class="btn-primary px-10 py-4 rounded-full font-bold tracking-[0.2em] text-sm shadow-lg"
+                        data-i18n="hero_btn_pkgs">
+                        VER TODOS LOS PAQUETES
+                    </button>
+                    <button onclick="contactGeneral()"
+                        class="bg-white text-coronation px-10 py-4 rounded-full font-bold tracking-[0.2em] text-sm flex items-center gap-2 hover:bg-slate-100 transition shadow-lg">
+                        <i data-lucide="phone" class="w-4 h-4"></i>
+                        <span data-i18n="hero_btn_contact">CONTACTAR AHORA</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Destinos Destacados -->
+        <section class="py-20 container mx-auto px-4">
+            <div class="mb-12">
+                <h2 class="font-league text-5xl text-coronation uppercase" data-i18n="featured_title">
+                    DESTINOS DESTACADOS
+                </h2>
+                <div class="w-20 h-1 bg-bayau mt-2"></div>
+            </div>
+
+            <!-- Contenedor Acordeón -->
+            <div id="home-destinations-grid" class="flex flex-col md:flex-row gap-4 w-full h-[600px]">
+            </div>
+
+            <!-- Animación Interactiva de la Camioneta -->
+            <div class="mt-8 relative h-16 w-full max-w-4xl mx-auto overflow-hidden hidden md:block">
+                <!-- Calle / Línea punteada -->
+                <div class="absolute bottom-4 left-0 w-full border-b-[3px] border-dashed border-slate-300"></div>
+                <!-- El Bus -->
+                <div id="chicken-bus"
+                    class="absolute bottom-4 z-10 w-28 h-auto transition-all duration-1000 ease-[cubic-bezier(0.25,1,0.5,1)]"
+                    style="left: 0%;">
+                    <!-- SVG de Camioneta Guatemalteca (Trompuda estilo Blue Bird) -->
+                    <svg viewBox="0 0 120 50" fill="none" xmlns="http://www.w3.org/2000/svg"
+                        class="w-full h-full drop-shadow-md relative">
+                        <!-- Chasis / Defensa inferior -->
+                        <path d="M5,42 L115,42" stroke="#1F2937" stroke-width="3" stroke-linecap="round" />
+
+                        <!-- Trompa del bus (frente a la derecha) -->
+                        <path d="M90,40 L90,26 Q95,26 102,28 L110,28 L114,40 Z" fill="#4997D0" />
+                        <rect x="105" y="30" width="3" height="8" fill="#F1F5F9" /> <!-- Parrilla delantera -->
+                        <circle cx="112" cy="34" r="2" fill="#FEF08A" /> <!-- Faro delantero -->
+                        <rect x="114" y="38" width="4" height="6" rx="1" fill="#475569" /> <!-- Bumper frontal -->
+
+                        <!-- Cuerpo principal amarillo -->
+                        <path d="M5,40 L90,40 L90,12 Q87,8 80,8 L15,8 Q5,8 5,15 Z" fill="#4997D0" stroke="#CA8A04"
+                            stroke-width="1" />
+                        <path d="M5,40 L90,40" stroke="#000" stroke-width="1" />
+
+                        <!-- Franjas coloridas decorativas típicas de "Chicken Bus" -->
+                        <rect x="5" y="27" width="85" height="3" fill="#FFFFFF" />
+                        <rect x="5" y="32" width="85" height="2" fill="#FFFFFF" />
+                        <rect x="5" y="22" width="85" height="1" fill="#10B981" opacity="0.8" />
+
+                        <!-- Ventanas sucesivas -->
+                        <rect x="10" y="14" width="8" height="10" rx="1" fill="#BAE6FD" stroke="#64748B"
+                            stroke-width="1" />
+                        <rect x="20" y="14" width="8" height="10" rx="1" fill="#BAE6FD" stroke="#64748B"
+                            stroke-width="1" />
+                        <rect x="30" y="14" width="8" height="10" rx="1" fill="#BAE6FD" stroke="#64748B"
+                            stroke-width="1" />
+                        <rect x="40" y="14" width="8" height="10" rx="1" fill="#BAE6FD" stroke="#64748B"
+                            stroke-width="1" />
+                        <rect x="50" y="14" width="8" height="10" rx="1" fill="#BAE6FD" stroke="#64748B"
+                            stroke-width="1" />
+                        <rect x="60" y="14" width="8" height="10" rx="1" fill="#BAE6FD" stroke="#64748B"
+                            stroke-width="1" />
+                        <rect x="70" y="14" width="8" height="10" rx="1" fill="#BAE6FD" stroke="#64748B"
+                            stroke-width="1" />
+
+                        <!-- Puerta o ventana del chofer -->
+                        <rect x="80" y="14" width="8" height="18" rx="1" fill="#BAE6FD" stroke="#64748B"
+                            stroke-width="1" />
+
+                        <!-- Parrilla de carga arriba (canasta) -->
+                        <rect x="15" y="5" width="60" height="3" rx="1" fill="#94A3B8" />
+                        <!-- Bultos o canastos de mercado arriba -->
+                        <rect x="25" y="2" width="12" height="4" rx="1" fill="#F87171" drop-shadow="md" />
+                        <rect x="45" y="1" width="15" height="5" rx="1" fill="#4ADE80" />
+                        <circle cx="70" cy="3" r="3" fill="#A8A29E" />
+
+                        <!-- Llantas (trasera y delantera) -->
+                        <!-- Trasera -->
+                        <circle cx="28" cy="42" r="7" fill="#111827" />
+                        <circle cx="28" cy="42" r="3" fill="#94A3B8" />
+
+                        <!-- Delantera -->
+                        <circle cx="92" cy="42" r="7" fill="#111827" />
+                        <circle cx="92" cy="42" r="3" fill="#94A3B8" />
+
+                        <!-- Escape animado de humo atrás -->
+                        <path class="animate-pulse" d="M2,40 Q-4,35 -6,40 Q-8,45 -12,38" stroke="#E2E8F0"
+                            stroke-width="2" fill="none" opacity="0.6" stroke-linecap="round" />
+                    </svg>
+                </div>
+            </div>
+        </section>
+
+        <!-- =====================================================
+             CALENDARIO GENERAL (PÁGINA PRINCIPAL)
+        ===================================================== -->
+        <section class="py-16 md:py-24 bg-white/40 reveal">
+            <div class="container mx-auto px-4 md:px-6">
+                <div class="mb-10 md:mb-16">
+                    <span class="text-bayau font-bold tracking-[0.3em] text-[10px] uppercase"
+                        data-i18n="sched_tag_home">PRÓXIMAS SALIDAS</span>
+                    <h2 class="font-league text-5xl md:text-7xl text-coronation mt-1" data-i18n="sched_title_home">
+                        CALENDARIO GENERAL</h2>
+                    <p class="text-slate-400 text-sm mt-2" data-i18n="sched_sub_home">Toda nuestra programación
+                        confirmada. Puedes segmentarla en el menú de navegación.</p>
+                </div>
+
+                <div
+                    class="md:hidden flex items-center gap-2 text-slate-400 text-[9px] font-black uppercase tracking-widest mb-4 animate-pulse">
+                    <i data-lucide="arrow-right-left" class="w-3 h-3"></i> Desliza para ver más
+                </div>
+
+                <div class="table-container bg-white rounded-3xl overflow-hidden shadow-xl border border-slate-100">
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left border-collapse min-w-[760px]">
+                            <thead>
+                                <tr class="bg-slate-50 border-b border-slate-100">
+                                    <th class="px-8 py-5 text-[10px] font-black text-slate-400 uppercase tracking-widest"
+                                        data-i18n="sched_col_date">Fecha</th>
+                                    <th class="px-8 py-5 text-[10px] font-black text-slate-400 uppercase tracking-widest"
+                                        data-i18n="sched_col_dest">Destino</th>
+                                    <th class="px-8 py-5 text-[10px] font-black text-slate-400 uppercase tracking-widest hidden md:table-cell"
+                                        data-i18n="sched_col_type">Tipo</th>
+                                    <th class="px-8 py-5 text-[10px] font-black text-slate-400 uppercase tracking-widest text-right"
+                                        data-i18n="sched_col_action">Acción</th>
+                                </tr>
+                            </thead>
+                            <tbody id="home-calendar-table-body"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Galería de viajeros -->
+        <section class="py-20 bg-white border-y border-slate-100">
+            <div class="container mx-auto px-4 text-center">
+                <h2 class="font-league text-5xl text-coronation mb-2" data-i18n="gallery_title">
+                    GALERÍA DE VIAJEROS
+                </h2>
+                <p class="text-bayau font-bold tracking-widest text-[10px] mb-10 uppercase">
+                    <span data-i18n="gallery_subtitle">Encuéntranos en Instagram como</span>
+                    @viajeslamar_gt
+                </p>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-5xl mx-auto">
+                    <img src="https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?auto=format&fit=crop&q=60&w=500"
+                        alt="Destino Venecia"
+                        class="aspect-square object-cover rounded-2xl hover:scale-[1.02] transition duration-500"
+                        loading="lazy">
+                    <img src="https://images.unsplash.com/photo-1512100356956-c1226c693f03?auto=format&fit=crop&q=60&w=500"
+                        alt="Viajeros en montaña"
+                        class="aspect-square object-cover rounded-2xl hover:scale-[1.02] transition duration-500"
+                        loading="lazy">
+                    <img src="https://images.unsplash.com/photo-1530789253388-582c481c54b0?auto=format&fit=crop&q=60&w=500"
+                        alt="Viajero con mochila"
+                        class="aspect-square object-cover rounded-2xl hover:scale-[1.02] transition duration-500"
+                        loading="lazy">
+                    <img src="https://images.unsplash.com/photo-1504609773096-104ff2c73ba4?auto=format&fit=crop&q=60&w=500"
+                        alt="Destino playa"
+                        class="aspect-square object-cover rounded-2xl hover:scale-[1.02] transition duration-500"
+                        loading="lazy">
+                </div>
+            </div>
+        </section>
+
+        <!-- Formulario de cotización general -->
+        <section class="py-20 bg-slate-50">
+            <div class="container mx-auto px-4 max-w-3xl text-center">
+                <h2 class="font-league text-5xl text-coronation mb-8 italic" data-i18n="form_title">
+                    ¿PLANEAMOS TU PRÓXIMO VIAJE?
+                </h2>
+                <div class="bg-white p-6 md:p-10 rounded-[2.5rem] shadow-2xl">
+                    <form id="safeForm" class="grid grid-cols-1 md:grid-cols-2 gap-4" novalidate>
+                        <input type="text" id="f-name" required maxlength="50" data-i18n-placeholder="form_name"
+                            placeholder="Tu Nombre"
+                            class="px-6 py-4 bg-slate-50 rounded-2xl outline-none focus:ring-2 focus:ring-bayau">
+                        <input type="tel" id="f-phone" required maxlength="15" data-i18n-placeholder="form_phone"
+                            placeholder="Tu WhatsApp"
+                            class="px-6 py-4 bg-slate-50 rounded-2xl outline-none focus:ring-2 focus:ring-bayau">
+                        <textarea id="f-dest" required maxlength="200" data-i18n-placeholder="form_dest"
+                            placeholder="¿A dónde quieres ir?"
+                            class="md:col-span-2 px-6 py-4 bg-slate-50 rounded-2xl outline-none focus:ring-2 focus:ring-bayau h-32"></textarea>
+                        <button type="submit"
+                            class="md:col-span-2 btn-primary text-white py-5 rounded-2xl font-bold tracking-widest uppercase text-xs"
+                            data-i18n="form_submit">
+                            SOLICITAR COTIZACIÓN POR WHATSAPP
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </div><!-- /page-inicio -->
+
+    <!-- =====================================================
+         PÁGINA: SALIDAS GRUPALES Y PROMOCIONES (CALENDARIO)
+    ===================================================== -->
+    <div id="page-salidas" class="hidden page-fade">
+        <section class="py-16 md:py-24 bg-white/40">
+            <div class="container mx-auto px-4 md:px-6 mt-8 md:mt-12">
+                <div class="mb-10 md:mb-16">
+                    <span id="page-salidas-tag" class="text-bayau font-bold tracking-[0.3em] text-[10px] uppercase"
+                        data-i18n="sched_title">PROGRAMACIÓN</span>
+                    <h2 id="page-salidas-title" class="font-league text-5xl md:text-8xl text-coronation mt-1 uppercase"
+                        data-i18n="cal_tab_grupal">
+                        VIAJES GRUPALES
+                    </h2>
+                    <p class="text-slate-400 text-sm mt-4 md:text-base max-w-2xl" id="page-salidas-desc">
+                        Fechas fijas confirmadas. Haz clic en <em>Ver detalle</em> para conocer el itinerario completo y
+                        garantizar tu cupo.
+                    </p>
+                </div>
+
+                <div
+                    class="md:hidden flex items-center gap-2 text-slate-400 text-[9px] font-black uppercase tracking-widest mb-4 animate-pulse">
+                    <i data-lucide="arrow-right-left" class="w-3 h-3"></i> Desliza para ver más
+                </div>
+
+                <!-- Tabla Ocupando Ancho Completo -->
+                <div class="table-container bg-white rounded-3xl overflow-hidden shadow-xl border border-slate-100">
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left border-collapse min-w-[760px]">
+                            <thead>
+                                <tr class="bg-slate-50 border-b border-slate-100">
+                                    <th class="px-8 py-5 text-[10px] font-black text-slate-400 uppercase tracking-widest"
+                                        data-i18n="sched_col_date">Fecha</th>
+                                    <th class="px-8 py-5 text-[10px] font-black text-slate-400 uppercase tracking-widest"
+                                        data-i18n="sched_col_dest">Destino</th>
+                                    <th class="px-8 py-5 text-[10px] font-black text-slate-400 uppercase tracking-widest"
+                                        data-i18n="sched_col_type">Tipo</th>
+                                    <th class="px-8 py-5 text-[10px] font-black text-slate-400 uppercase tracking-widest"
+                                        data-i18n="sched_col_price">Desde</th>
+                                    <th class="px-8 py-5 text-[10px] font-black text-slate-400 uppercase tracking-widest text-right"
+                                        data-i18n="sched_col_action">Acción</th>
+                                </tr>
+                            </thead>
+                            <tbody id="calendar-table-body"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div><!-- /page-salidas -->
+
+    <!-- =====================================================
+         PÁGINA: PAQUETES (CATÁLOGO)
+    ===================================================== -->
+    <div id="page-paquetes" class="hidden page-fade">
+
+        <!-- Hero del paquete -->
+        <section id="hero-paquete" class="relative h-[50vh] flex items-center justify-center overflow-hidden">
+            <img id="pkg-hero-img" src="" alt="Destino seleccionado"
+                class="absolute inset-0 w-full h-full object-cover">
+            <div class="absolute inset-0 bg-black/40"></div>
+            <div class="relative z-10 text-center text-white px-4">
+                <h2 id="pkg-hero-title"
+                    class="font-league text-5xl md:text-9xl uppercase tracking-tighter leading-none"></h2>
+                <p id="pkg-hero-tag" class="text-sm font-bold tracking-[0.4em] uppercase opacity-80 text-bayau mt-2">
+                </p>
+            </div>
+        </section>
+
+        <!-- Selector horizontal de paquetes -->
+        <div class="bg-white border-b sticky top-20 z-40">
+            <div id="pkg-selector"
+                class="container mx-auto px-4 flex space-x-8 h-16 items-center overflow-x-auto no-scrollbar text-[10px] font-bold tracking-widest text-slate-400">
+            </div>
+        </div>
+
+        <!-- Detalle del paquete -->
+        <main class="container mx-auto px-4 py-12">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+
+                <!-- Panel principal con pestañas -->
+                <div class="lg:col-span-8">
+                    <div class="bg-white rounded-[2rem] shadow-xl overflow-hidden border border-slate-100">
+
+                        <div class="flex border-b overflow-x-auto no-scrollbar" role="tablist">
+                            <button onclick="switchPkgTab('incluye')" id="btn-pkg-incluye" role="tab"
+                                class="flex-1 min-w-[150px] py-5 text-[10px] font-bold uppercase tracking-widest tab-active"
+                                data-i18n="pkg_tab_1">
+                                Detalles e Inclusiones
+                            </button>
+                            <button onclick="switchPkgTab('itinerario')" id="btn-pkg-itinerario" role="tab"
+                                class="flex-1 min-w-[150px] py-5 text-[10px] font-bold uppercase tracking-widest text-slate-400"
+                                data-i18n="pkg_tab_2">
+                                Itinerario Sugerido
+                            </button>
+                            <button onclick="switchPkgTab('mapa')" id="btn-pkg-mapa" role="tab"
+                                class="flex-1 min-w-[150px] py-5 text-[10px] font-bold uppercase tracking-widest text-slate-400"
+                                data-i18n="pkg_tab_3">
+                                Ubicación del Destino
+                            </button>
+                        </div>
+
+                        <div class="p-8 md:p-12">
+                            <div id="pkg-tab-incluye" role="tabpanel" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            </div>
+                            <div id="pkg-tab-itinerario" role="tabpanel" class="hidden space-y-6"></div>
+                            <div id="pkg-tab-mapa" role="tabpanel"
+                                class="hidden h-[400px] w-full rounded-3xl overflow-hidden shadow-inner border border-slate-100 bg-slate-50">
+                                <iframe id="pkg-map-frame" src="" class="w-full h-full border-0" allowfullscreen=""
+                                    loading="lazy"></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sidebar: precio + formulario de reserva -->
+                <aside class="lg:col-span-4">
+                    <div
+                        class="bg-coronation p-8 rounded-[2rem] shadow-2xl text-white sticky top-44 border-t-4 border-bayau">
+                        <div class="text-center mb-6">
+                            <span class="text-[10px] tracking-widest uppercase opacity-60"
+                                data-i18n="pkg_price_label">Inversión desde</span>
+                            <div id="pkg-price" class="text-5xl font-bold text-bayau mt-1"></div>
+                            <p class="text-[10px] mt-2 opacity-60 uppercase tracking-widest italic"
+                                data-i18n="pkg_custom">Personaliza tu experiencia</p>
+                        </div>
+                        <form id="pkgQuoteForm" class="space-y-4" novalidate>
+                            <input type="text" id="pkg-u-name" required maxlength="50"
+                                data-i18n-placeholder="form_name_full" placeholder="Nombre completo"
+                                class="w-full px-5 py-4 bg-white/10 rounded-xl outline-none text-sm placeholder:text-white/40">
+                            <input type="tel" id="pkg-u-phone" required maxlength="15" placeholder="WhatsApp"
+                                class="w-full px-5 py-4 bg-white/10 rounded-xl outline-none text-sm placeholder:text-white/40">
+                            <button type="submit"
+                                class="w-full bg-bayau hover:bg-cyan-500 text-white py-4 rounded-xl font-bold tracking-widest text-xs flex items-center justify-center gap-2 transition-all">
+                                <i data-lucide="send" class="w-4 h-4"></i>
+                                <span data-i18n="pkg_btn_reserve">RESERVAR POR WHATSAPP</span>
+                            </button>
+                        </form>
+                    </div>
+                </aside>
+
+            </div>
+        </main>
+
+    </div><!-- /page-paquetes -->
+
+    <!-- =====================================================
+         PÁGINA: DETALLE DE VIAJE PROGRAMADO
+    ===================================================== -->
+    <div id="page-detalle-viaje" class="hidden page-fade">
+        <section class="relative h-[60vh] flex items-center justify-center overflow-hidden">
+            <img id="trip-hero-img" src="" alt="Detalle del viaje" class="absolute inset-0 w-full h-full object-cover">
+            <div class="absolute inset-0 bg-coronation/60"></div>
+            <div class="relative z-10 text-center text-white px-4">
+                <span id="trip-hero-tag"
+                    class="text-xs font-black tracking-[0.4em] uppercase text-bayau mb-4 block"></span>
+                <h2 id="trip-hero-title" class="font-league text-7xl md:text-9xl tracking-tighter"></h2>
+                <div class="mt-8 flex flex-wrap justify-center gap-6">
+                    <div class="flex items-center gap-2">
+                        <i data-lucide="calendar" class="w-5 h-5 text-bayau"></i>
+                        <span id="trip-hero-date"
+                            class="font-bold uppercase tracking-widest text-sm text-white/90"></span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <i data-lucide="moon" class="w-5 h-5 text-bayau"></i>
+                        <span id="trip-hero-nights"
+                            class="font-bold uppercase tracking-widest text-sm text-white/90"></span>
+                    </div>
+                </div>
+            </div>
+            <button onclick="showPage('inicio')"
+                class="absolute top-10 left-10 z-20 w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-md flex items-center justify-center text-white transition">
+                <i data-lucide="arrow-left" class="w-6 h-6"></i>
+            </button>
+        </section>
+
+        <main class="container mx-auto px-4 py-16">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+                <div class="lg:col-span-2 space-y-12">
+                    <section>
+                        <h3 class="font-league text-4xl text-coronation mb-8 lowercase"
+                            style="font-variant: small-caps;">¿Qué incluye este viaje?</h3>
+                        <div id="trip-incluye" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
+                    </section>
+                    <section>
+                        <h3 class="font-league text-4xl text-coronation mb-8 lowercase"
+                            style="font-variant: small-caps;">Itinerario del viaje</h3>
+                        <div id="trip-itinerario" class="space-y-8"></div>
+                    </section>
+                    <section>
+                        <h3 class="font-league text-4xl text-coronation mb-8 lowercase"
+                            style="font-variant: small-caps;">Ubicación del Destino</h3>
+                        <div id="trip-mapa-container"
+                            class="h-[400px] w-full rounded-[2.5rem] overflow-hidden shadow-lg border border-slate-100">
+                            <iframe id="trip-map-frame" src="" class="w-full h-full border-0" allowfullscreen=""
+                                loading="lazy"></iframe>
+                        </div>
+                    </section>
+                </div>
+                <aside class="lg:col-span-1">
+                    <div class="sticky top-28 bg-coronation p-10 rounded-[2.5rem] text-white shadow-2xl">
+                        <div class="mb-8 text-center">
+                            <span
+                                class="text-[10px] font-black tracking-[0.3em] uppercase opacity-60 block mb-2">Inversión
+                                Final</span>
+                            <span id="trip-price" class="text-4xl font-black text-bayau leading-none"></span>
+                        </div>
+                        <div class="space-y-6 mb-10">
+                            <div class="flex items-center gap-3">
+                                <i data-lucide="info" class="w-5 h-5 text-bayau"></i>
+                                <span id="trip-cupos" class="text-sm font-bold uppercase tracking-widest"></span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <i data-lucide="users" class="w-5 h-5 text-bayau"></i>
+                                <span class="text-sm font-bold uppercase tracking-widest">Salida Grupal</span>
+                            </div>
+                        </div>
+                        <button id="btn-reserve-trip"
+                            class="w-full btn-primary text-white py-5 rounded-2xl font-bold tracking-widest uppercase text-xs shadow-xl shadow-bayau/20">
+                            RESERVAR MI CUPO POR WHATSAPP
+                        </button>
+                    </div>
+                </aside>
+            </div>
+        </main>
+    </div>
+
+    <!-- =====================================================
+         FOOTER
+    ===================================================== -->
+    <footer class="bg-coronation text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center border-b border-white/5 pb-10">
+
+                <!-- Columna 1: Marca Compacta -->
+                <div class="flex flex-col items-center md:items-start space-y-3">
+                    <div class="bg-white p-3 rounded-2xl shadow-lg">
+                        <img src="https://viajeslamar.wordpress.com/wp-content/uploads/2026/02/whatsapp-image-2026-02-24-at-18.57.52.jpeg"
+                            alt="Logo Viajes La Mar" class="h-12 w-auto object-contain">
+                    </div>
+                    <p class="text-xs text-slate-400 font-medium max-w-[220px] text-center md:text-left leading-tight"
+                        data-i18n="footer_desc">
+                        Asesoría personalizada y experiencias seguras en Guatemala.
+                    </p>
+                </div>
+
+                <!-- Columna 2: Contacto Rápido -->
+                <div class="flex flex-col items-center space-y-3">
+                    <a href="https://maps.google.com/?q=10+Calle+6-48+Zona+9+Centro+de+Negocios+Gibraltar+Oficina+11+Guatemala+City+Guatemala"
+                        target="_blank" rel="noopener noreferrer"
+                        class="flex items-start gap-2 hover:text-bayau transition group text-center md:text-left">
+                        <i data-lucide="map-pin" class="w-4 h-4 text-bayau mt-0.5 shrink-0"></i>
+                        <span class="text-sm font-bold">10 Calle 6-48 Zona 9, Centro de Negocios Gibraltar Of. 11</span>
+                    </a>
+                    <div class="flex flex-col md:flex-row gap-4 md:gap-8">
+                        <a href="https://wa.me/50223764607" rel="noopener noreferrer"
+                            class="flex items-center gap-2 hover:text-bayau transition group">
+                            <i data-lucide="message-circle" class="w-4 h-4 text-bayau"></i>
+                            <span class="text-sm font-bold">+502 2376-4607</span>
+                        </a>
+                        <a href="mailto:info@viajeslamar.com"
+                            class="flex items-center gap-2 hover:text-bayau transition group">
+                            <i data-lucide="mail" class="w-4 h-4 text-bayau"></i>
+                            <span class="text-sm font-bold">info@viajeslamar.com</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Columna 3: Redes Sociales -->
+                <div class="flex justify-center md:justify-end space-x-3">
+                    <a href="https://www.facebook.com/lamar.guate" target="_blank" rel="noopener noreferrer"
+                        aria-label="Facebook"
+                        class="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center hover:bg-blue-600 transition-all hover:-translate-y-1">
+                        <i data-lucide="facebook" class="w-5 h-5"></i>
+                    </a>
+                    <a href="https://www.instagram.com/lamar.guate" target="_blank" rel="noopener noreferrer"
+                        aria-label="Instagram"
+                        class="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center hover:bg-pink-600 transition-all hover:-translate-y-1">
+                        <i data-lucide="instagram" class="w-5 h-5"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="pt-6 text-center text-[10px] text-slate-500 tracking-[0.4em] uppercase" data-i18n="footer_copy">
+                Viajes La Mar © 2026 • Guatemala
+            </div>
+        </div>
+    </footer>
+
+    <!-- =====================================================
+         SCRIPTS — Carga dinámica desde data.json
+    ===================================================== -->
+    <script src="js/app.js"></script>
+
+</body>
+
+</html>

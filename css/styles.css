@@ -1,0 +1,210 @@
+/* =========================================
+   VIAJES LA MAR — Stylesheet
+   ========================================= */
+
+/* --- Variables globales --- */
+:root {
+    --bayau: #18afc2;
+    --coronation: #24255f;
+    --whatsapp: #25D366;
+    --glass: rgba(255, 255, 255, 0.7);
+    --glass-border: rgba(255, 255, 255, 0.3);
+}
+
+/* --- Base --- */
+body {
+    font-family: 'Montserrat', sans-serif;
+    overflow-x: hidden;
+    color: #1e293b;
+    line-height: 1.6;
+}
+
+/* --- Tipografía personalizada --- */
+.font-league {
+    font-family: 'League Gothic', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* --- Colores de marca --- */
+.bg-bayau {
+    background-color: var(--bayau);
+}
+
+.text-bayau {
+    color: var(--bayau);
+}
+
+.bg-coronation {
+    background-color: var(--coronation);
+}
+
+.text-coronation {
+    color: var(--coronation);
+}
+
+/* --- Protección de imágenes --- */
+img {
+    -webkit-user-drag: none;
+    user-select: none;
+    background-color: #f1f5f9;
+}
+
+/* --- Botón primario Premium --- */
+.btn-primary {
+    background: linear-gradient(135deg, var(--bayau), #129aa8);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: 0.5s;
+}
+
+.btn-primary:hover::before {
+    left: 100%;
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 30px -10px rgba(24, 175, 194, 0.5);
+}
+
+/* --- Card de vidrio avanzada (Glassmorphism) --- */
+.glass-card {
+    background: var(--glass);
+    backdrop-filter: blur(12px) saturate(180%);
+    -webkit-backdrop-filter: blur(12px) saturate(180%);
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
+}
+
+.glass-card-dark {
+    background: rgba(36, 37, 95, 0.8);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* --- Animaciones de Interfaz --- */
+.page-fade {
+    animation: fadeInSlide 0.6s ease-out forwards;
+}
+
+@keyframes fadeInSlide {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Reveal on Scroll (Clases base) */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease-out;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* --- Navegación --- */
+header {
+    transition: all 0.3s ease;
+}
+
+.nav-link-active {
+    color: var(--bayau);
+    position: relative;
+}
+
+.nav-link-active::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--bayau);
+    border-radius: 2px;
+}
+
+/* --- Botón WhatsApp --- */
+.whatsapp-float {
+    position: fixed;
+    width: 56px;
+    height: 56px;
+    bottom: 30px;
+    right: 30px;
+    background-color: var(--whatsapp);
+    color: #FFF;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 16px rgba(37, 211, 102, 0.3);
+    z-index: 100;
+    transition: all 0.3s ease;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1) rotate(10deg);
+}
+
+/* --- Scrollbar personalizada --- */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--bayau);
+}
+
+/* --- Misceláneos --- */
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+.no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.tab-active {
+    color: var(--coronation) !important;
+    border-bottom: 2px solid var(--bayau);
+    background: rgba(24, 175, 194, 0.05);
+}
+
+.step-number {
+    font-family: 'League Gothic', sans-serif;
+    font-size: 6rem;
+    opacity: 0.05;
+    position: absolute;
+    top: -20px;
+    left: -10px;
+    line-height: 1;
+}
