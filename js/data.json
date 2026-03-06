@@ -26,7 +26,26 @@
             "footer_contact": "CONTACTO DIRECTO",
             "footer_follow": "SÍGUENOS",
             "footer_copy": "Guatemala • Viajes La Mar © 2026 • Expertos en Experiencias Seguras",
-            "more_details": "VER DETALLES"
+            "more_details": "VER DETALLES",
+            "trip_incl_title": "¿Qué incluye este viaje?",
+            "trip_itin_title": "Itinerario del viaje",
+            "trip_loc_title": "Ubicación del Destino",
+            "trip_invest_title": "Inversión Final",
+            "trip_group_tag": "Salida Grupal",
+            "sched_tag_home": "PRÓXIMAS SALIDAS",
+            "sched_title_home": "CALENDARIO GENERAL",
+            "sched_sub_home": "Toda nuestra programación confirmada. Puedes segmentarla en el menú de navegación.",
+            "sched_title": "PROGRAMACIÓN",
+            "sched_col_date": "Fecha",
+            "sched_col_dest": "Destino",
+            "sched_col_type": "Tipo",
+            "sched_col_price": "Desde",
+            "sched_col_action": "Acción",
+            "sched_btn": "Ver detalle",
+            "cal_tab_grupal": "VIAJES GRUPALES",
+            "cal_tab_promo": "PROMOCIONES",
+            "sched_subtitle_group": "Fechas fijas confirmadas. Haz clic en <em>Ver detalle</em> para conocer el itinerario completo.",
+            "sched_subtitle_promo": "Mejores ofertas por tiempo limitado. Reserva rápido antes de que se agoten."
         },
         "en": {
             "nav_start": "HOME",
@@ -54,7 +73,26 @@
             "footer_contact": "DIRECT CONTACT",
             "footer_follow": "FOLLOW US",
             "footer_copy": "Guatemala • Viajes La Mar © 2026 • Secure Experience Experts",
-            "more_details": "VIEW DETAILS"
+            "more_details": "VIEW DETAILS",
+            "sched_tag_home": "UPCOMING DEPARTURES",
+            "sched_title_home": "GENERAL CALENDAR",
+            "sched_sub_home": "All our confirmed programming. You can segment it from the navigation menu.",
+            "sched_title": "SCHEDULE",
+            "sched_col_date": "Date",
+            "sched_col_dest": "Destination",
+            "sched_col_type": "Type",
+            "sched_col_price": "From",
+            "sched_col_action": "Action",
+            "sched_btn": "View details",
+            "cal_tab_grupal": "GROUP TRIPS",
+            "cal_tab_promo": "PROMOTIONS",
+            "trip_incl_title": "What does this trip include?",
+            "trip_itin_title": "Trip itinerary",
+            "trip_loc_title": "Destination Location",
+            "trip_invest_title": "Final Investment",
+            "trip_group_tag": "Group Departure",
+            "sched_subtitle_group": "Confirmed fixed dates. Click <em>View details</em> for the full itinerary.",
+            "sched_subtitle_promo": "Best limited time offers. Book fast before they sell out."
         }
     },
     "packagesData": {
@@ -204,14 +242,14 @@
         ]
     },
     "imagesMap": {
-        "cancun": "https://images.unsplash.com/photo-1544918877-464d13bb9151?auto=format&fit=crop&q=80&w=1200",
-        "roatan": "https://images.unsplash.com/photo-1548574505-5e239809ee19?auto=format&fit=crop&q=80&w=1200",
-        "europa": "https://images.unsplash.com/photo-1493397212122-2b85edf8106b?auto=format&fit=crop&q=80&w=1200",
-        "machupicchu": "https://images.unsplash.com/photo-1587518904101-418939ac4056?auto=format&fit=crop&q=80&w=1200",
-        "panama": "https://images.unsplash.com/photo-1533219057257-4bb9ed5d2cc6?auto=format&fit=crop&q=80&w=1200",
-        "colombia": "https://images.unsplash.com/photo-1583359665792-6d2c0b43bb64?auto=format&fit=crop&q=80&w=1200",
-        "xela": "https://images.unsplash.com/photo-1533219057257-4bb9ed5d2cc6?auto=format&fit=crop&q=80&w=1200",
-        "quiche": "https://images.unsplash.com/photo-1533219057257-4bb9ed5d2cc6?auto=format&fit=crop&q=80&w=1200"
+        "cancun": "assets/images/cancun.jpg",
+        "roatan": "assets/images/roatan.jpg",
+        "europa": "assets/images/europa.jpg",
+        "machupicchu": "assets/images/machupicchu.jpg",
+        "panama": "assets/images/panama.jpg",
+        "colombia": "assets/images/colombia.jpg",
+        "xela": "assets/images/xela.jpg",
+        "quiche": "assets/images/quiche.jpg"
     },
     "scheduledTrips": [
         {
@@ -241,7 +279,7 @@
                 "en": "INCA EXPLORATION"
             },
             "cuposLibres": 8,
-            "imagen": "https://images.unsplash.com/photo-1587518904101-418939ac4056?auto=format&fit=crop&q=80&w=1200",
+            "imagen": "assets/images/machupicchu.jpg",
             "incluye": {
                 "es": [
                     "Vuelos",
@@ -315,7 +353,7 @@
                 "en": "SUMMER 2026"
             },
             "cuposLibres": 3,
-            "imagen": "https://images.unsplash.com/photo-1544918877-464d13bb9151?auto=format&fit=crop&q=80&w=1200",
+            "imagen": "assets/images/cancun.jpg",
             "incluye": {
                 "es": [
                     "Vuelo directo",
@@ -381,7 +419,7 @@
                 "en": "OFFERS 2026"
             },
             "cuposLibres": 12,
-            "imagen": "https://images.unsplash.com/photo-1533219057257-4bb9ed5d2cc6?auto=format&fit=crop&q=80&w=1200",
+            "imagen": "assets/images/panama.jpg",
             "incluye": {
                 "es": [
                     "Vuelos",
@@ -447,7 +485,7 @@
                 "en": "OFFERS 2026"
             },
             "cuposLibres": 12,
-            "imagen": "https://images.unsplash.com/photo-1533219057257-4bb9ed5d2cc6?auto=format&fit=crop&q=80&w=1200",
+            "imagen": "assets/images/xela.jpg",
             "incluye": {
                 "es": [
                     "Vuelos",
@@ -513,7 +551,7 @@
                 "en": "OFFERS 2026"
             },
             "cuposLibres": 12,
-            "imagen": "https://images.unsplash.com/photo-1533219057257-4bb9ed5d2cc6?auto=format&fit=crop&q=80&w=1200",
+            "imagen": "assets/images/quiche.jpg",
             "incluye": {
                 "es": [
                     "Vuelos",

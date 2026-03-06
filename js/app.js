@@ -116,16 +116,20 @@ function showPage(pageId) {
 
         if (pageId === 'grupales') {
             currentCalendarTab = 'grupal';
-            if (titleEl) titleEl.innerText = (currentLang === 'es') ? 'VIAJES GRUPALES' : 'GROUP TRIPS';
-            if (descEl) descEl.innerHTML = (currentLang === 'es') ? 'Fechas fijas confirmadas. Haz clic en <em>Ver detalle</em> para conocer el itinerario completo.' : 'Confirmed fixed dates. Click <em>View details</em> for the full itinerary.';
-            if (titleEl) titleEl.setAttribute('data-i18n', 'cal_tab_grupal');
-            if (descEl) descEl.setAttribute('data-i18n', 'sched_subtitle_group');
         } else {
             currentCalendarTab = 'promocion';
-            if (titleEl) titleEl.innerText = (currentLang === 'es') ? 'PROMOCIONES ESPECIALES' : 'SPECIAL PROMOTIONS';
-            if (descEl) descEl.innerHTML = (currentLang === 'es') ? 'Mejores ofertas por tiempo limitado. Reserva rápido antes de que se agoten.' : 'Best limited time offers. Book fast before they sell out.';
-            if (titleEl) titleEl.setAttribute('data-i18n', 'cal_tab_promo');
-            if (descEl) descEl.setAttribute('data-i18n', 'sched_subtitle_promo');
+        }
+
+        // Usar i18n para actualizar títulos y descripciones
+        if (titleEl) {
+            const key = pageId === 'grupales' ? 'cal_tab_grupal' : 'cal_tab_promo';
+            titleEl.setAttribute('data-i18n', key);
+            titleEl.innerHTML = translations[currentLang][key] || key;
+        }
+        if (descEl) {
+            const key = pageId === 'grupales' ? 'sched_subtitle_group' : 'sched_subtitle_promo';
+            descEl.setAttribute('data-i18n', key);
+            descEl.innerHTML = translations[currentLang][key] || key;
         }
 
         // Renderizar tabla
@@ -398,9 +402,9 @@ function renderTripDetail(trip) {
 
     // Incluye
     document.getElementById('trip-incluye').innerHTML = trip.incluye[currentLang].map(item => `
-        <div class="flex items-center gap-4 p-5 bg-white rounded-3xl border border-slate-100 shadow-sm">
-            <div class="w-10 h-10 rounded-2xl bg-bayau/10 flex items-center justify-center text-bayau">
-                <i data-lucide="check" class="w-5 h-5"></i>
+        <div class="flex items-center gap-3 p-3 bg-white rounded-2xl border border-slate-100 shadow-sm">
+            <div class="w-8 h-8 rounded-xl bg-bayau/10 flex items-center justify-center text-bayau">
+                <i data-lucide="check" class="w-4 h-4"></i>
             </div>
             <span class="text-xs font-bold text-coronation uppercase tracking-widest">${item}</span>
         </div>
@@ -408,12 +412,12 @@ function renderTripDetail(trip) {
 
     // Itinerario
     document.getElementById('trip-itinerario').innerHTML = trip.itinerario[currentLang].map((step, idx) => `
-        <div class="relative pl-12 pb-12 border-l-2 border-slate-100 last:pb-0">
+        <div class="relative pl-10 pb-8 border-l-2 border-slate-100 last:pb-0">
             <div class="absolute -left-[11px] top-0 w-5 h-5 rounded-full bg-coronation border-4 border-white"></div>
-            <div class="bg-white p-8 rounded-[2rem] border border-slate-100 shadow-sm hover:shadow-md transition">
-                <span class="text-[10px] font-black text-bayau tracking-[0.3em] uppercase block mb-2">Día ${idx + 1}</span>
-                <h4 class="font-bold text-coronation text-xl uppercase tracking-tighter mb-3">${step.t}</h4>
-                <p class="text-sm text-slate-500 leading-relaxed">${step.d}</p>
+            <div class="bg-white p-5 rounded-3xl border border-slate-100 shadow-sm hover:shadow-md transition">
+                <span class="text-[10px] font-black text-bayau tracking-[0.3em] uppercase block mb-1">Día ${idx + 1}</span>
+                <h4 class="font-bold text-coronation text-lg uppercase tracking-tighter mb-2">${step.t}</h4>
+                <p class="text-xs text-slate-500 leading-relaxed">${step.d}</p>
             </div>
         </div>
     `).join('');

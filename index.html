@@ -61,8 +61,7 @@
 
             <!-- Logo -->
             <div class="flex items-center cursor-pointer h-full py-2" onclick="showPage('inicio')">
-                <img src="https://viajeslamar.wordpress.com/wp-content/uploads/2026/02/whatsapp-image-2026-02-24-at-18.57.52.jpeg"
-                    alt="Logo Viajes La Mar" class="h-full w-auto object-contain">
+                <img src="assets/images/logo.png" alt="Logo Viajes La Mar" class="h-full w-auto object-contain">
             </div>
 
             <!-- Navegación principal -->
@@ -130,8 +129,7 @@
                 class="relative w-[85%] max-w-[320px] h-full bg-coronation shadow-2xl flex flex-col border-l border-white/10">
                 <!-- Header del menú (Blanco Sólido para el Logo) -->
                 <div class="flex justify-between items-center p-6 bg-white border-b border-slate-100">
-                    <img src="https://viajeslamar.wordpress.com/wp-content/uploads/2026/02/whatsapp-image-2026-02-24-at-18.57.52.jpeg"
-                        alt="Logo Viajes La Mar" class="h-10 w-auto object-contain">
+                    <img src="assets/images/logo.png" alt="Logo Viajes La Mar" class="h-10 w-auto object-contain">
                     <button onclick="toggleMobileMenu()"
                         class="text-coronation bg-slate-100 p-2 rounded-xl hover:bg-slate-200 transition-colors">
                         <i data-lucide="x" class="w-8 h-8"></i>
@@ -186,8 +184,8 @@
 
         <!-- Hero -->
         <section class="relative min-h-[700px] md:h-[85vh] flex items-center overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=2073&auto=format&fit=crop"
-                class="absolute inset-0 w-full h-full object-cover" alt="Playa paradisiaca" loading="eager">
+            <img src="assets/images/hero.jpg" class="absolute inset-0 w-full h-full object-cover"
+                alt="Playa paradisiaca" loading="eager">
             <div class="absolute inset-0 bg-gradient-to-r from-coronation/90 via-coronation/40 to-transparent"></div>
 
             <div class="container mx-auto px-4 relative z-10 text-white">
@@ -227,7 +225,7 @@
             </div>
 
             <!-- Animación Interactiva de la Camioneta -->
-            <div class="mt-8 relative h-16 w-full max-w-4xl mx-auto overflow-hidden hidden md:block">
+            <div class="mt-8 relative h-12 md:h-16 w-full max-w-4xl mx-auto overflow-hidden block">
                 <!-- Calle / Línea punteada -->
                 <div class="absolute bottom-4 left-0 w-full border-b-[3px] border-dashed border-slate-300"></div>
                 <!-- El Bus -->
@@ -352,20 +350,16 @@
                     @viajeslamar_gt
                 </p>
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-5xl mx-auto">
-                    <img src="https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?auto=format&fit=crop&q=60&w=500"
-                        alt="Destino Venecia"
+                    <img src="assets/images/gallery1.jpg" alt="Destino Venecia"
                         class="aspect-square object-cover rounded-2xl hover:scale-[1.02] transition duration-500"
                         loading="lazy">
-                    <img src="https://images.unsplash.com/photo-1512100356956-c1226c693f03?auto=format&fit=crop&q=60&w=500"
-                        alt="Viajeros en montaña"
+                    <img src="assets/images/gallery2.jpg" alt="Viajeros en montaña"
                         class="aspect-square object-cover rounded-2xl hover:scale-[1.02] transition duration-500"
                         loading="lazy">
-                    <img src="https://images.unsplash.com/photo-1530789253388-582c481c54b0?auto=format&fit=crop&q=60&w=500"
-                        alt="Viajero con mochila"
+                    <img src="assets/images/gallery3.jpg" alt="Viajero con mochila"
                         class="aspect-square object-cover rounded-2xl hover:scale-[1.02] transition duration-500"
                         loading="lazy">
-                    <img src="https://images.unsplash.com/photo-1504609773096-104ff2c73ba4?auto=format&fit=crop&q=60&w=500"
-                        alt="Destino playa"
+                    <img src="assets/images/gallery4.jpg" alt="Destino playa"
                         class="aspect-square object-cover rounded-2xl hover:scale-[1.02] transition duration-500"
                         loading="lazy">
                 </div>
@@ -580,17 +574,17 @@
                 <div class="lg:col-span-2 space-y-12">
                     <section>
                         <h3 class="font-league text-4xl text-coronation mb-8 lowercase"
-                            style="font-variant: small-caps;">¿Qué incluye este viaje?</h3>
+                            style="font-variant: small-caps;" data-i18n="trip_incl_title">¿Qué incluye este viaje?</h3>
                         <div id="trip-incluye" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
                     </section>
                     <section>
                         <h3 class="font-league text-4xl text-coronation mb-8 lowercase"
-                            style="font-variant: small-caps;">Itinerario del viaje</h3>
+                            style="font-variant: small-caps;" data-i18n="trip_itin_title">Itinerario del viaje</h3>
                         <div id="trip-itinerario" class="space-y-8"></div>
                     </section>
                     <section>
                         <h3 class="font-league text-4xl text-coronation mb-8 lowercase"
-                            style="font-variant: small-caps;">Ubicación del Destino</h3>
+                            style="font-variant: small-caps;" data-i18n="trip_loc_title">Ubicación del Destino</h3>
                         <div id="trip-mapa-container"
                             class="h-[400px] w-full rounded-[2.5rem] overflow-hidden shadow-lg border border-slate-100">
                             <iframe id="trip-map-frame" src="" class="w-full h-full border-0" allowfullscreen=""
@@ -601,8 +595,8 @@
                 <aside class="lg:col-span-1">
                     <div class="sticky top-28 bg-coronation p-10 rounded-[2.5rem] text-white shadow-2xl">
                         <div class="mb-8 text-center">
-                            <span
-                                class="text-[10px] font-black tracking-[0.3em] uppercase opacity-60 block mb-2">Inversión
+                            <span class="text-[10px] font-black tracking-[0.3em] uppercase opacity-60 block mb-2"
+                                data-i18n="trip_invest_title">Inversión
                                 Final</span>
                             <span id="trip-price" class="text-4xl font-black text-bayau leading-none"></span>
                         </div>
@@ -613,7 +607,8 @@
                             </div>
                             <div class="flex items-center gap-3">
                                 <i data-lucide="users" class="w-5 h-5 text-bayau"></i>
-                                <span class="text-sm font-bold uppercase tracking-widest">Salida Grupal</span>
+                                <span class="text-sm font-bold uppercase tracking-widest"
+                                    data-i18n="trip_group_tag">Salida Grupal</span>
                             </div>
                         </div>
                         <button id="btn-reserve-trip"
@@ -636,8 +631,7 @@
                 <!-- Columna 1: Marca Compacta -->
                 <div class="flex flex-col items-center md:items-start space-y-3">
                     <div class="bg-white p-3 rounded-2xl shadow-lg">
-                        <img src="https://viajeslamar.wordpress.com/wp-content/uploads/2026/02/whatsapp-image-2026-02-24-at-18.57.52.jpeg"
-                            alt="Logo Viajes La Mar" class="h-12 w-auto object-contain">
+                        <img src="assets/images/logo.png" alt="Logo Viajes La Mar" class="h-12 w-auto object-contain">
                     </div>
                     <p class="text-xs text-slate-400 font-medium max-w-[220px] text-center md:text-left leading-tight"
                         data-i18n="footer_desc">

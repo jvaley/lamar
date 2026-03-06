@@ -47,7 +47,7 @@ body {
 img {
     -webkit-user-drag: none;
     user-select: none;
-    background-color: #f1f5f9;
+    background-color: transparent;
 }
 
 /* --- Botón primario Premium --- */
