@@ -564,7 +564,7 @@ document.getElementById('pkgQuoteForm').addEventListener('submit', function (e) 
 /** Botón "Contactar Ahora" del hero */
 function contactGeneral() {
     const msg = encodeURIComponent("Hola Viajes La Mar, deseo recibir información sobre sus paquetes.");
-    window.open(`https://wa.me/50223764607text=${msg}`, '_blank', 'noopener,noreferrer');
+    window.open(`https://wa.me/50223764607?text=${msg}`, '_blank', 'noopener,noreferrer');
 }
 
 /* ------------------------------------------
