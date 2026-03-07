@@ -412,12 +412,14 @@ function renderTripDetail(trip) {
 
     // Itinerario
     document.getElementById('trip-itinerario').innerHTML = trip.itinerario[currentLang].map((step, idx) => `
-        <div class="relative pl-10 pb-8 border-l-2 border-slate-100 last:pb-0">
+        <div class="relative pl-5 md:pl-10 pb-0 md:pb-8 border-l-2 border-slate-100 last:pb-0">
             <div class="absolute -left-[11px] top-0 w-5 h-5 rounded-full bg-coronation border-4 border-white"></div>
-            <div class="bg-white p-5 rounded-3xl border border-slate-100 shadow-sm hover:shadow-md transition">
-                <span class="text-[10px] font-black text-bayau tracking-[0.3em] uppercase block mb-1">Día ${idx + 1}</span>
-                <h4 class="font-bold text-coronation text-lg uppercase tracking-tighter mb-2">${step.t}</h4>
-                <p class="text-xs text-slate-500 leading-relaxed">${step.d}</p>
+            <div class="bg-white px-3 py-2 md:p-5 rounded-2xl md:rounded-3xl border border-slate-100 shadow-sm hover:shadow-md transition">
+                <div class="flex items-center gap-2 mb-1">
+                    <span class="text-[9px] font-black text-bayau tracking-[0.2em] uppercase whitespace-nowrap">Día ${idx + 1}</span>
+                    <h4 class="font-bold text-coronation text-sm md:text-lg uppercase tracking-tighter truncate">${step.t}</h4>
+                </div>
+                <p class="text-[10px] md:text-xs text-slate-500 leading-tight">${step.d}</p>
             </div>
         </div>
     `).join('');
@@ -470,7 +472,7 @@ function renderPaquete(id) {
 
     // Tab: Lo que incluye
     document.getElementById('pkg-tab-incluye').innerHTML = pkg.incluye.map(item => `
-        <div class="flex items-center space-x-3 p-4 bg-slate-50 rounded-2xl border border-slate-100">
+        <div class="flex items-center space-x-3 p-3 md:p-4 bg-slate-50 rounded-2xl border border-slate-100">
             <i data-lucide="check-circle" class="w-5 h-5 text-bayau flex-shrink-0"></i>
             <span class="text-xs font-bold text-coronation uppercase tracking-wider">${item}</span>
         </div>
@@ -478,10 +480,10 @@ function renderPaquete(id) {
 
     // Tab: Itinerario
     document.getElementById('pkg-tab-itinerario').innerHTML = pkg.itinerario.map(it => `
-        <div class="relative pl-8 border-l-2 border-slate-100">
+        <div class="relative pl-5 md:pl-8 border-l-2 border-slate-100 pb-0 md:pb-6 last:pb-0">
             <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-coronation border-4 border-white"></div>
-            <h4 class="font-bold text-coronation text-xs uppercase tracking-widest">${it.t}</h4>
-            <p class="text-xs text-slate-500 mt-1">${it.d}</p>
+            <h4 class="font-bold text-coronation text-[10px] md:text-xs uppercase tracking-widest mb-1">${it.t}</h4>
+            <p class="text-[10px] md:text-xs text-slate-500 leading-tight">${it.d}</p>
         </div>
     `).join('');
 

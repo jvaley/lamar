@@ -347,7 +347,7 @@
                 </h2>
                 <p class="text-bayau font-bold tracking-widest text-[10px] mb-10 uppercase">
                     <span data-i18n="gallery_subtitle">Encuéntranos en Instagram como</span>
-                    @viajeslamar_gt
+                    @lamar.guate
                 </p>
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-5xl mx-auto">
                     <img src="assets/images/gallery1.jpg" alt="Destino Venecia"
@@ -450,13 +450,14 @@
     <div id="page-paquetes" class="hidden page-fade">
 
         <!-- Hero del paquete -->
-        <section id="hero-paquete" class="relative h-[50vh] flex items-center justify-center overflow-hidden">
+        <section id="hero-paquete"
+            class="relative h-[35vh] md:h-[50vh] flex items-center justify-center overflow-hidden">
             <img id="pkg-hero-img" src="" alt="Destino seleccionado"
                 class="absolute inset-0 w-full h-full object-cover">
             <div class="absolute inset-0 bg-black/40"></div>
             <div class="relative z-10 text-center text-white px-4">
                 <h2 id="pkg-hero-title"
-                    class="font-league text-5xl md:text-9xl uppercase tracking-tighter leading-none"></h2>
+                    class="font-league text-4xl md:text-9xl uppercase tracking-tighter leading-none"></h2>
                 <p id="pkg-hero-tag" class="text-sm font-bold tracking-[0.4em] uppercase opacity-80 text-bayau mt-2">
                 </p>
             </div>
@@ -495,10 +496,10 @@
                             </button>
                         </div>
 
-                        <div class="p-8 md:p-12">
+                        <div class="p-5 md:p-12">
                             <div id="pkg-tab-incluye" role="tabpanel" class="grid grid-cols-1 md:grid-cols-2 gap-4">
                             </div>
-                            <div id="pkg-tab-itinerario" role="tabpanel" class="hidden space-y-6"></div>
+                            <div id="pkg-tab-itinerario" role="tabpanel" class="hidden space-y-0 md:space-y-6"></div>
                             <div id="pkg-tab-mapa" role="tabpanel"
                                 class="hidden h-[400px] w-full rounded-3xl overflow-hidden shadow-inner border border-slate-100 bg-slate-50">
                                 <iframe id="pkg-map-frame" src="" class="w-full h-full border-0" allowfullscreen=""
@@ -511,7 +512,7 @@
                 <!-- Sidebar: precio + formulario de reserva -->
                 <aside class="lg:col-span-4">
                     <div
-                        class="bg-coronation p-8 rounded-[2rem] shadow-2xl text-white sticky top-44 border-t-4 border-bayau">
+                        class="bg-coronation p-6 md:p-8 rounded-[2rem] shadow-2xl text-white sticky top-44 border-t-4 border-bayau">
                         <div class="text-center mb-6">
                             <span class="text-[10px] tracking-widest uppercase opacity-60"
                                 data-i18n="pkg_price_label">Inversión desde</span>
@@ -543,13 +544,13 @@
          PÁGINA: DETALLE DE VIAJE PROGRAMADO
     ===================================================== -->
     <div id="page-detalle-viaje" class="hidden page-fade">
-        <section class="relative h-[60vh] flex items-center justify-center overflow-hidden">
+        <section class="relative h-[40vh] md:h-[60vh] flex items-center justify-center overflow-hidden">
             <img id="trip-hero-img" src="" alt="Detalle del viaje" class="absolute inset-0 w-full h-full object-cover">
             <div class="absolute inset-0 bg-coronation/60"></div>
             <div class="relative z-10 text-center text-white px-4">
                 <span id="trip-hero-tag"
                     class="text-xs font-black tracking-[0.4em] uppercase text-bayau mb-4 block"></span>
-                <h2 id="trip-hero-title" class="font-league text-7xl md:text-9xl tracking-tighter"></h2>
+                <h2 id="trip-hero-title" class="font-league text-5xl md:text-9xl tracking-tighter"></h2>
                 <div class="mt-8 flex flex-wrap justify-center gap-6">
                     <div class="flex items-center gap-2">
                         <i data-lucide="calendar" class="w-5 h-5 text-bayau"></i>
@@ -569,9 +570,9 @@
             </button>
         </section>
 
-        <main class="container mx-auto px-4 py-16">
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
-                <div class="lg:col-span-2 space-y-12">
+        <main class="container mx-auto px-4 py-8 md:py-16">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-12">
+                <div class="lg:col-span-2 space-y-8 md:space-y-12">
                     <section>
                         <h3 class="font-league text-4xl text-coronation mb-8 lowercase"
                             style="font-variant: small-caps;" data-i18n="trip_incl_title">¿Qué incluye este viaje?</h3>
@@ -580,7 +581,7 @@
                     <section>
                         <h3 class="font-league text-4xl text-coronation mb-8 lowercase"
                             style="font-variant: small-caps;" data-i18n="trip_itin_title">Itinerario del viaje</h3>
-                        <div id="trip-itinerario" class="space-y-8"></div>
+                        <div id="trip-itinerario" class="space-y-0 md:space-y-8"></div>
                     </section>
                     <section>
                         <h3 class="font-league text-4xl text-coronation mb-8 lowercase"
@@ -593,7 +594,7 @@
                     </section>
                 </div>
                 <aside class="lg:col-span-1">
-                    <div class="sticky top-28 bg-coronation p-10 rounded-[2.5rem] text-white shadow-2xl">
+                    <div class="sticky top-28 bg-coronation p-6 md:p-10 rounded-[2.5rem] text-white shadow-2xl">
                         <div class="mb-8 text-center">
                             <span class="text-[10px] font-black tracking-[0.3em] uppercase opacity-60 block mb-2"
                                 data-i18n="trip_invest_title">Inversión
