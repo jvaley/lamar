@@ -322,6 +322,9 @@ function renderCalendar() {
                 <td class="px-8 py-6 hidden md:table-cell">
                     <span class="text-sm font-bold text-slate-400 uppercase tracking-widest">${trip.tipo[currentLang]}</span>
                 </td>
+                <td class="px-8 py-6 hidden md:table-cell">
+                    <span class="text-sm font-bold text-slate-400 uppercase tracking-widest">${trip.precio[currentLang]}</span>
+                </td>
                 <td class="px-8 py-6 text-right">
                     <button class="inline-block px-5 py-3 border-2 border-slate-200 text-coronation font-black uppercase tracking-widest text-[10px] rounded-xl hover:bg-slate-50 transition"
                         data-i18n="sched_btn" onclick="goTripDetail('${trip.id}')">Ver detalle</button>
