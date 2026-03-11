@@ -208,3 +208,67 @@ header {
     left: -10px;
     line-height: 1;
 }
+
+/* --- Clickable rows and interactive calendar --- */
+.clickable-row {
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.clickable-row:hover {
+    background-color: rgba(24, 175, 194, 0.05) !important;
+}
+
+.detail-icon-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    color: var(--coronation);
+    transition: all 0.3s ease;
+}
+
+.clickable-row:hover .detail-icon-btn {
+    background: var(--bayau);
+    color: white;
+    border-color: var(--bayau);
+    transform: scale(1.1);
+}
+
+/* --- Responsive table: Compact horizontal rows for mobile --- */
+@media (max-width: 768px) {
+    .responsive-table-master {
+        display: table;
+        min-width: 100% !important;
+    }
+    
+    .responsive-table-master thead th {
+        padding: 1rem 0.5rem !important;
+        font-size: 8px !important;
+    }
+
+    .responsive-table-master td {
+        padding: 1rem 0.5rem !important;
+        vertical-align: middle;
+    }
+
+    .responsive-table-master .detail-icon-btn {
+        width: 30px;
+        height: 30px;
+    }
+
+    .responsive-table-master span.block.text-sm,
+    .responsive-table-master span.block.text-base {
+        font-size: 11px !important;
+        line-height: 1.2;
+    }
+
+    .responsive-table-master span.text-xs,
+    .responsive-table-master span.text-\[10px\] {
+        font-size: 8px !important;
+    }
+}

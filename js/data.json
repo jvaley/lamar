@@ -3,7 +3,7 @@
         "es": {
             "nav_start": "INICIO",
             "nav_packages": "PAQUETES",
-            "hero_title": "EXPLORA EL<br><span class='text-bayau'>MUNDO</span>",
+            "hero_title": "VIAJA, CONECTA,<br><span class='text-bayau'>VIVE LA MAR</span>",
             "hero_subtitle": "Somos expertos en crear memorias. Desde las playas de Cancún hasta los rincones de Europa.",
             "hero_btn_pkgs": "VER TODOS LOS PAQUETES",
             "hero_btn_contact": "CONTACTAR AHORA",
@@ -17,7 +17,7 @@
             "form_dest": "¿A dónde quieres ir?",
             "form_submit": "SOLICITAR COTIZACIÓN POR WHATSAPP",
             "pkg_tab_1": "Detalles e Inclusiones",
-            "pkg_tab_2": "Itinerario Sugerido",
+            "pkg_tab_2": "Itinerario",
             "pkg_tab_3": "Ubicación del Destino",
             "pkg_price_label": "Inversión desde",
             "pkg_custom": "Personaliza tu experiencia",
@@ -52,7 +52,7 @@
         "en": {
             "nav_start": "HOME",
             "nav_packages": "PACKAGES",
-            "hero_title": "EXPLORE THE<br><span class='text-bayau'>WORLD</span>",
+            "hero_title": "TRAVEL, CONNECT,<br><span class='text-bayau'>LIVE THE SEA</span>",
             "hero_subtitle": "We are memory-making experts. From Cancun's beaches to Europe's hidden gems.",
             "hero_btn_pkgs": "VIEW ALL PACKAGES",
             "hero_btn_contact": "CONTACT NOW",
@@ -66,7 +66,7 @@
             "form_dest": "Where do you want to go?",
             "form_submit": "REQUEST QUOTE VIA WHATSAPP",
             "pkg_tab_1": "Details & Inclusions",
-            "pkg_tab_2": "Suggested Itinerary",
+            "pkg_tab_2": "Itinerary",
             "pkg_tab_3": "Destination Location",
             "pkg_price_label": "Investment from",
             "pkg_custom": "Customize your experience",
@@ -257,173 +257,37 @@
     },
     "scheduledTrips": [
         {
-            "id": "promo-peru",
+            "id": "promo-atitlan",
             "categoria": "grupal",
             "destino": {
-                "es": "MACHU PICCHU",
-                "en": "MACHU PICCHU"
+                "es": "ATITLAN",
+                "en": "ATITLAN"
             },
             "fecha": {
-                "es": "15 MAR 2026",
-                "en": "MAR 15 2026"
-            },
-            "noches": 5,
-            "tipo": {
-                "es": "Cultural",
-                "en": "Cultural"
-            },
-            "precio": {
-                "es": "Q.8,900.00",
-                "en": "$1,150.00"
-            },
-            "estado": "available",
-            "mapEmbed": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15582.0!2d-72.545!3d-13.163!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x916d9a5b3a8e9e9f%3A0x6b8b0e5d5e5e5e5e!2sMachu%20Picchu!5e0!3m2!1ses!2sgt!4v1709325000000!5m2!1ses!2sgt",
-            "tag": {
-                "es": "EXPLORACIÓN INCA",
-                "en": "INCA EXPLORATION"
-            },
-            "cuposLibres": 8,
-            "imagen": "assets/images/machupicchu.jpg",
-            "incluye": {
-                "es": [
-                    "Vuelos",
-                    "Entrada a ciudadela",
-                    "Tren de lujo",
-                    "Guía políglota"
-                ],
-                "en": [
-                    "Flights",
-                    "Citadel entrance",
-                    "Luxury train",
-                    "Polyglot guide"
-                ]
-            },
-            "itinerario": {
-                "es": [
-                    {
-                        "t": "Cusco",
-                        "d": "Aclimatación y tarde de té."
-                    },
-                    {
-                        "t": "Valle Sagrado",
-                        "d": "Visita a mercados locales."
-                    },
-                    {
-                        "t": "La Ciudadela",
-                        "d": "Tour privado en Machu Picchu."
-                    }
-                ],
-                "en": [
-                    {
-                        "t": "Cusco",
-                        "d": "Acclimatization and tea afternoon."
-                    },
-                    {
-                        "t": "Sacred Valley",
-                        "d": "Local markets visit."
-                    },
-                    {
-                        "t": "The Citadel",
-                        "d": "Private tour in Machu Picchu."
-                    }
-                ]
-            },
-            "Acciones": ""
-        },
-        {
-            "id": "promo-cancun",
-            "categoria": "promocion",
-            "destino": {
-                "es": "CANCÚN GRUPAL",
-                "en": "GROUP CANCUN"
-            },
-            "fecha": {
-                "es": "10 ABR 2026",
+                "es": "04 ABR 2026",
                 "en": "APR 10 2026"
             },
-            "noches": 4,
+            "noches": 1,
             "tipo": {
                 "es": "Relajación",
                 "en": "Relaxation"
             },
             "precio": {
-                "es": "Q.5,200.00",
-                "en": "$675.00"
+                "es": "Q.350.00",
+                "en": "$530.00"
             },
             "estado": "few",
-            "mapEmbed": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d238133.15236423!2d-86.95388647575305!3d21.121323215162445!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f4c2b05aef1157f%3A0xec60a6a61c62f210!2sCanc%C3%BAn%2C%20Quintana%20Roo%2C%20M%C3%A9xico!5e0!3m2!1ses!2sgt!4v1709325000000!5m2!1ses!2sgt",
+            "mapEmbed": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d154866.31236174333!2d-91.2013642!3d14.67881525!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85894ac7c083b493%3A0xa6e33f7d6b54910!2sLake%20Atitl%C3%A1n!5e1!3m2!1sen!2sgt!4v1773120642172!5m2!1sen!2sgt",
             "tag": {
-                "es": "VERANO 2026",
-                "en": "SUMMER 2026"
+                "es": "EL LAGO MAS HERMOSO DEL MUNDO",
+                "en": "THE  MOST BEAUTIFUL LAKE IN THE WORLD"
             },
-            "cuposLibres": 3,
-            "imagen": "assets/images/cancun.jpg",
-            "incluye": {
-                "es": [
-                    "Vuelo directo",
-                    "Hotel All-Inclusive",
-                    "Traslados",
-                    "Catamarán"
-                ],
-                "en": [
-                    "Direct flight",
-                    "All-Inclusive Hotel",
-                    "Transfers",
-                    "Catamaran"
-                ]
+            "descripcion": {
+                "es": "Disfruta de una experiencia única en el lago más hermoso del mundo. Rodeado de volcanes y pueblos indígenas, Atitlán te ofrece paz, cultura y paisajes inigualables.",
+                "en": "Enjoy a unique experience in the most beautiful lake in the world. Surrounded by volcanoes and indigenous villages, Atitlan offers you peace, culture, and unmatched landscapes."
             },
-            "itinerario": {
-                "es": [
-                    {
-                        "t": "Llegada",
-                        "d": "Bienvenida tropical."
-                    },
-                    {
-                        "t": "Isla Mujeres",
-                        "d": "Fiesta en catamarán."
-                    }
-                ],
-                "en": [
-                    {
-                        "t": "Arrival",
-                        "d": "Tropical welcome."
-                    },
-                    {
-                        "t": "Isla Mujeres",
-                        "d": "Catamaran party."
-                    }
-                ]
-            },
-            "Acciones": ""
-        },
-        {
-            "id": "promo-panama",
-            "categoria": "promocion",
-            "destino": {
-                "es": "PANAMÁ & COMPRAS",
-                "en": "PANAMA & SHOPPING"
-            },
-            "fecha": {
-                "es": "20 MAY 2026",
-                "en": "MAY 20 2026"
-            },
-            "noches": 3,
-            "tipo": {
-                "es": "Compras",
-                "en": "Shopping"
-            },
-            "precio": {
-                "es": "Q.4,100.00",
-                "en": "$530.00"
-            },
-            "estado": "available",
-            "mapEmbed": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126130.2!2d-79.5!3d8.9!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8faca8f8a8f8a8f8%3A0x6b8b0e5d5e5e5e5e!2sPanam%C3%A1%2C%20Panam%C3%A1!5e0!3m2!1ses!2sgt!4v1709325000000!5m2!1ses!2sgt",
-            "tag": {
-                "es": "OFERTAS 2026",
-                "en": "OFFERS 2026"
-            },
-            "cuposLibres": 12,
-            "imagen": "assets/images/panama.jpg",
+            "cuposLibres": "",
+            "imagen": "assets/images/atitlan.jpg",
             "incluye": {
                 "es": [
                     "Vuelos",
@@ -460,139 +324,8 @@
                     }
                 ]
             },
-            "Acciones": ""
-        },
-        {
-            "id": "promo-xela",
-            "categoria": "grupal",
-            "destino": {
-                "es": "XELA",
-                "en": "XELA"
-            },
-            "fecha": {
-                "es": "26 JUN 2026",
-                "en": "JUN 26 2026"
-            },
-            "noches": 3,
-            "tipo": {
-                "es": "Compras",
-                "en": "Shopping"
-            },
-            "precio": {
-                "es": "Q.4,100.00",
-                "en": "$530.00"
-            },
-            "estado": "available",
-            "mapEmbed": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15426.0!2d-91.516!3d14.83!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x858e9f8a8f8a8f8%3A0x6b8b0e5d5e5e5e5e!2sQuetzaltenango!5e0!3m2!1ses!2sgt!4v1709325000000!5m2!1ses!2sgt",
-            "tag": {
-                "es": "OFERTAS 2026",
-                "en": "OFFERS 2026"
-            },
-            "cuposLibres": 12,
-            "imagen": "assets/images/xela.jpg",
-            "incluye": {
-                "es": [
-                    "Vuelos",
-                    "Hotel Ciudad",
-                    "Tour Canal",
-                    "Traslados Compras"
-                ],
-                "en": [
-                    "Flights",
-                    "City Hotel",
-                    "Canal Tour",
-                    "Shopping Transfers"
-                ]
-            },
-            "itinerario": {
-                "es": [
-                    {
-                        "t": "Canal",
-                        "d": "Visita al centro de visitantes Miraflores."
-                    },
-                    {
-                        "t": "Albrook",
-                        "d": "Día completo de compras."
-                    }
-                ],
-                "en": [
-                    {
-                        "t": "Canal",
-                        "d": "Visit to Miraflores visitor center."
-                    },
-                    {
-                        "t": "Albrook",
-                        "d": "Full day of shopping."
-                    }
-                ]
-            },
-            "Acciones": ""
-        },
-        {
-            "id": "promo-quiche",
-            "categoria": "grupal",
-            "destino": {
-                "es": "QUICHE",
-                "en": "QUICHE"
-            },
-            "fecha": {
-                "es": "26 JUN 2026",
-                "en": "JUN 26 2026"
-            },
-            "noches": 5,
-            "tipo": {
-                "es": "Cultural",
-                "en": "Cultural"
-            },
-            "precio": {
-                "es": "Q.2,000.00",
-                "en": "$530.00"
-            },
-            "estado": "available",
-            "mapEmbed": "https://maps.app.goo.gl/YyFTLrobMNyXSGsDA",
-            "tag": {
-                "es": "OFERTAS 2026",
-                "en": "OFFERS 2026"
-            },
-            "cuposLibres": 12,
-            "imagen": "assets/images/quiche.jpg",
-            "incluye": {
-                "es": [
-                    "Vuelos",
-                    "Hotel Ciudad",
-                    "Tour Canal",
-                    "Traslados Compras"
-                ],
-                "en": [
-                    "Flights",
-                    "City Hotel",
-                    "Canal Tour",
-                    "Shopping Transfers"
-                ]
-            },
-            "itinerario": {
-                "es": [
-                    {
-                        "t": "Canal",
-                        "d": "Visita al centro de visitantes Miraflores."
-                    },
-                    {
-                        "t": "Albrook",
-                        "d": "Día completo de compras."
-                    }
-                ],
-                "en": [
-                    {
-                        "t": "Canal",
-                        "d": "Visit to Miraflores visitor center."
-                    },
-                    {
-                        "t": "Albrook",
-                        "d": "Full day of shopping."
-                    }
-                ]
-            },
-            "Acciones": ""
+            "Acciones": "",
+            "Acciones_1": ""
         }
     ]
 }

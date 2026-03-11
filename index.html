@@ -192,7 +192,7 @@
             <div class="container mx-auto px-4 relative z-10 text-white">
                 <h1 class="font-league text-5xl md:text-9xl mb-4 leading-[0.85] tracking-tighter uppercase"
                     data-i18n="hero_title">
-                    EXPLORA EL<br><span class="text-bayau">MUNDO</span>
+                    VIAJA, CONECTA,<br><span class="text-bayau">VIVE LA MAR</span>
                 </h1>
                 <p class="text-lg md:text-2xl font-light mb-8 max-w-xl opacity-90" data-i18n="hero_subtitle">
                     Somos expertos en crear memorias. Desde las playas de Cancún hasta los rincones de Europa.
@@ -320,7 +320,7 @@
 
                 <div class="table-container bg-white rounded-3xl overflow-hidden shadow-xl border border-slate-100">
                     <div class="overflow-x-auto">
-                        <table class="w-full text-left border-collapse min-w-[760px]">
+                        <table class="responsive-table-master w-full text-left border-collapse min-w-[760px]">
                             <thead>
                                 <tr class="bg-slate-50 border-b border-slate-100">
                                     <th class="px-8 py-5 text-[10px] font-black text-slate-400 uppercase tracking-widest"
@@ -422,16 +422,16 @@
                 <!-- Tabla Ocupando Ancho Completo -->
                 <div class="table-container bg-white rounded-3xl overflow-hidden shadow-xl border border-slate-100">
                     <div class="overflow-x-auto">
-                        <table class="w-full text-left border-collapse min-w-[760px]">
+                        <table class="responsive-table-master w-full text-left border-collapse min-w-[760px]">
                             <thead>
                                 <tr class="bg-slate-50 border-b border-slate-100">
                                     <th class="px-8 py-5 text-[10px] font-black text-slate-400 uppercase tracking-widest"
                                         data-i18n="sched_col_date">Fecha</th>
                                     <th class="px-8 py-5 text-[10px] font-black text-slate-400 uppercase tracking-widest"
                                         data-i18n="sched_col_dest">Destino</th>
-                                    <th class="px-8 py-5 text-[10px] font-black text-slate-400 uppercase tracking-widest"
+                                    <th class="px-8 py-5 text-[10px] font-black text-slate-400 uppercase tracking-widest hidden md:table-cell"
                                         data-i18n="sched_col_type">Tipo</th>
-                                    <th class="px-8 py-5 text-[10px] font-black text-slate-400 uppercase tracking-widest"
+                                    <th class="px-8 py-5 text-[10px] font-black text-slate-400 uppercase tracking-widest hidden md:table-cell"
                                         data-i18n="sched_col_price">Desde</th>
                                     <th class="px-8 py-5 text-[10px] font-black text-slate-400 uppercase tracking-widest text-right"
                                         data-i18n="sched_col_action">Acción</th>
@@ -488,7 +488,7 @@
                             <button onclick="switchPkgTab('itinerario')" id="btn-pkg-itinerario" role="tab"
                                 class="flex-1 min-w-[150px] py-5 text-[10px] font-bold uppercase tracking-widest text-slate-400"
                                 data-i18n="pkg_tab_2">
-                                Itinerario Sugerido
+                                Itinerario
                             </button>
                             <button onclick="switchPkgTab('mapa')" id="btn-pkg-mapa" role="tab"
                                 class="flex-1 min-w-[150px] py-5 text-[10px] font-bold uppercase tracking-widest text-slate-400"
@@ -574,7 +574,11 @@
         <main class="container mx-auto px-4 py-8 md:py-16">
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-12">
                 <div class="lg:col-span-2 space-y-8 md:space-y-12">
-                    <section>
+                    <section class="mb-12">
+                        <p id="trip-description" class="text-slate-500 leading-relaxed text-lg italic border-l-4 border-bayau/30 pl-6 py-2"></p>
+                    </section>
+
+                    <section class="mb-12">
                         <h3 class="font-league text-4xl text-coronation mb-8 lowercase"
                             style="font-variant: small-caps;" data-i18n="trip_incl_title">¿Qué incluye este viaje?</h3>
                         <div id="trip-incluye" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
@@ -631,25 +635,28 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center border-b border-white/5 pb-10">
 
                 <!-- Columna 1: Marca Compacta -->
-                <div class="flex flex-col items-center md:items-start space-y-3">
+                <div class="flex flex-col items-center justify-center space-y-3">
                     <div class="bg-white p-3 rounded-2xl shadow-lg">
                         <img src="assets/images/logo.png" alt="Logo Viajes La Mar" class="h-12 w-auto object-contain">
                     </div>
-                    <p class="text-xs text-slate-400 font-medium max-w-[220px] text-center md:text-left leading-tight"
+                    <p class="text-xs text-slate-400 font-medium max-w-[220px] text-center leading-tight"
                         data-i18n="footer_desc">
                         Asesoría personalizada y experiencias seguras en Guatemala.
                     </p>
                 </div>
 
                 <!-- Columna 2: Contacto Rápido -->
-                <div class="flex flex-col items-center space-y-3">
+                <div class="flex flex-col items-center justify-center space-y-4 text-center">
                     <a href="https://maps.google.com/?q=10+Calle+6-48+Zona+9+Centro+de+Negocios+Gibraltar+Oficina+11+Guatemala+City+Guatemala"
                         target="_blank" rel="noopener noreferrer"
-                        class="flex items-start gap-2 hover:text-bayau transition group text-center md:text-left">
-                        <i data-lucide="map-pin" class="w-4 h-4 text-bayau mt-0.5 shrink-0"></i>
-                        <span class="text-sm font-bold">10 Calle 6-48 Zona 9, Centro de Negocios Gibraltar Of. 11</span>
+                        class="flex flex-col items-center justify-center hover:text-bayau transition group">
+                        <div class="flex items-center gap-2 mb-0.5">
+                            <i data-lucide="map-pin" class="w-4 h-4 md:w-5 md:h-5 text-bayau shrink-0"></i>
+                            <span class="text-sm font-bold">10 Calle 6-48 Zona 9,</span>
+                        </div>
+                        <span class="text-sm font-bold">Centro de Negocios Gibraltar Of. 11</span>
                     </a>
-                    <div class="flex flex-col md:flex-row gap-4 md:gap-8">
+                    <div class="flex flex-col sm:flex-row items-center gap-4 sm:gap-8">
                         <a href="https://wa.me/50223764607" rel="noopener noreferrer"
                             class="flex items-center gap-2 hover:text-bayau transition group">
                             <i data-lucide="message-circle" class="w-4 h-4 text-bayau"></i>
@@ -664,7 +671,7 @@
                 </div>
 
                 <!-- Columna 3: Redes Sociales -->
-                <div class="flex justify-center md:justify-end space-x-3">
+                <div class="flex justify-center items-center space-x-3">
                     <a href="https://www.facebook.com/lamar.guate" target="_blank" rel="noopener noreferrer"
                         aria-label="Facebook"
                         class="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center hover:bg-blue-600 transition-all hover:-translate-y-1">

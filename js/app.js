@@ -310,7 +310,7 @@ function renderCalendar() {
         const statusClass = trip.estado === 'available' ? 'bg-bayau/10 text-bayau' : (trip.estado === 'few' ? 'bg-orange-100 text-orange-600' : 'bg-slate-100 text-slate-400');
 
         return `
-            <tr class="border-b border-slate-50 hover:bg-slate-50 transition">
+            <tr class="clickable-row hover:bg-slate-50 transition border-b border-slate-50" onclick="goTripDetail('${trip.id}')">
                 <td class="px-8 py-6">
                     <span class="block text-sm font-bold text-coronation uppercase tracking-tighter">${trip.fecha[currentLang]}</span>
                     <span class="text-xs text-slate-400 uppercase tracking-widest font-black">${trip.noches} ${currentLang === 'es' ? 'noches' : 'nights'}</span>
@@ -326,8 +326,9 @@ function renderCalendar() {
                     <span class="text-sm font-bold text-slate-400 uppercase tracking-widest">${trip.precio[currentLang]}</span>
                 </td>
                 <td class="px-8 py-6 text-right">
-                    <button class="inline-block px-5 py-3 border-2 border-slate-200 text-coronation font-black uppercase tracking-widest text-[10px] rounded-xl hover:bg-slate-50 transition"
-                        data-i18n="sched_btn" onclick="goTripDetail('${trip.id}')">Ver detalle</button>
+                    <div class="detail-icon-btn">
+                        <i data-lucide="chevron-right" class="w-5 h-5"></i>
+                    </div>
                 </td>
             </tr>
         `;
@@ -353,7 +354,7 @@ function renderHomeCalendar() {
         const statusClass = trip.estado === 'available' ? 'bg-bayau/10 text-bayau' : (trip.estado === 'few' ? 'bg-orange-100 text-orange-600' : 'bg-slate-100 text-slate-400');
 
         return `
-            <tr class="border-b border-slate-50 hover:bg-slate-50 transition">
+            <tr class="clickable-row hover:bg-slate-50 transition border-b border-slate-50" onclick="goTripDetail('${trip.id}')">
                 <td class="px-8 py-6">
                     <span class="block text-sm font-bold text-coronation uppercase tracking-tighter">${trip.fecha[currentLang]}</span>
                     <span class="text-xs text-slate-400 uppercase tracking-widest font-black">${trip.noches} ${currentLang === 'es' ? 'noches' : 'nights'}</span>
@@ -366,8 +367,9 @@ function renderHomeCalendar() {
                     <span class="text-sm font-bold text-slate-400 uppercase tracking-widest">${trip.tipo[currentLang]}</span>
                 </td>
                 <td class="px-8 py-6 text-right">
-                    <button class="inline-block px-5 py-3 border-2 border-slate-200 text-coronation font-black uppercase tracking-widest text-[10px] rounded-xl hover:bg-slate-50 transition"
-                        data-i18n="sched_btn" onclick="goTripDetail('${trip.id}')">Ver detalle</button>
+                    <div class="detail-icon-btn">
+                        <i data-lucide="chevron-right" class="w-5 h-5"></i>
+                    </div>
                 </td>
             </tr>
         `;
@@ -402,6 +404,13 @@ function renderTripDetail(trip) {
 
     document.getElementById('trip-price').innerText = trip.precio[currentLang];
     document.getElementById('trip-cupos').innerText = `${trip.cuposLibres} ${currentLang === 'es' ? 'CUPOS DISPONIBLES' : 'SPOTS AVAILABLE'}`;
+    
+    // Descripción
+    const descEl = document.getElementById('trip-description');
+    if (descEl) {
+        descEl.innerText = trip.descripcion ? trip.descripcion[currentLang] : "";
+        descEl.parentElement.classList.toggle('hidden', !trip.descripcion);
+    }
 
     // Incluye
     document.getElementById('trip-incluye').innerHTML = trip.incluye[currentLang].map(item => `
