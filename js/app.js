@@ -35,52 +35,7 @@ function sanitize(text) {
 /* ------------------------------------------
    Internacionalización (i18n)
 ------------------------------------------ */
-
-/**
- * Cambia el idioma de toda la interfaz.
- * @param {'es'|'en'} lang
- */
-function setLanguage(lang) {
-    currentLang = lang;
-
-    // Actualizar visual del selector de idioma (Estilo Pill)
-    const indicator = document.getElementById('lang-indicator');
-    const btnEs = document.getElementById('lang-es');
-    const btnEn = document.getElementById('lang-en');
-
-    if (indicator && btnEs && btnEn) {
-        if (lang === 'es') {
-            indicator.style.transform = 'translateX(0)';
-            btnEs.classList.add('text-white');
-            btnEs.classList.remove('text-slate-400');
-            btnEn.classList.add('text-slate-400');
-            btnEn.classList.remove('text-white');
-        } else {
-            indicator.style.transform = 'translateX(100%)';
-            btnEn.classList.add('text-white');
-            btnEn.classList.remove('text-slate-400');
-            btnEs.classList.add('text-slate-400');
-            btnEs.classList.remove('text-white');
-        }
-    }
-
-    // Actualizar elementos text con data-i18n
-    document.querySelectorAll('[data-i18n]').forEach(el => {
-        const key = el.getAttribute('data-i18n');
-        el.innerHTML = translations[lang][key] ?? key;
-    });
-
-    // Actualizar placeholders bilingüe
-    document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
-        const key = el.getAttribute('data-i18n-placeholder');
-        el.placeholder = translations[lang][key] ?? key;
-    });
-
-    // Re-renderizar componentes dinámicos
-    renderHomeDestinations();
-    renderCalendar();
-    renderPaquete(paqueteActivoId);
-}
+// Eliminado: Traducciones dinámicas ya no son necesarias ya que el sitio es 100% en español.
 
 /* ------------------------------------------
    Navegación entre páginas (SPA)
@@ -124,12 +79,12 @@ function showPage(pageId) {
         if (titleEl) {
             const key = pageId === 'grupales' ? 'cal_tab_grupal' : 'cal_tab_promo';
             titleEl.setAttribute('data-i18n', key);
-            titleEl.innerHTML = translations[currentLang][key] || key;
+            titleEl.innerHTML = translations['es'][key] || key;
         }
         if (descEl) {
             const key = pageId === 'grupales' ? 'sched_subtitle_group' : 'sched_subtitle_promo';
             descEl.setAttribute('data-i18n', key);
-            descEl.innerHTML = translations[currentLang][key] || key;
+            descEl.innerHTML = translations['es'][key] || key;
         }
 
         // Renderizar tabla
@@ -169,8 +124,8 @@ function renderHomeDestinations() {
     const grid = document.getElementById('home-destinations-grid');
     if (!grid || !packagesData) return;
 
-    const label = translations[currentLang].more_details;
-    const desde = currentLang === 'es' ? 'Desde' : 'From';
+    const label = translations['es'].more_details;
+    const desde = 'Desde';
 
     grid.innerHTML = packagesData[currentLang].map((pkg, index) => {
         // La primera tarjeta inicia expandida (flex-[4])
@@ -306,24 +261,24 @@ function renderCalendar() {
     }
 
     tbody.innerHTML = filteredTrips.map(trip => {
-        const statusText = trip.estado === 'available' ? (currentLang === 'es' ? 'Disponible' : 'Available') : (trip.estado === 'few' ? (currentLang === 'es' ? 'Últimos cupos' : 'Last spots') : (currentLang === 'es' ? 'Lleno' : 'Full'));
+        const statusText = trip.estado === 'available' ? 'Disponible' : (trip.estado === 'few' ? 'Últimos cupos' : 'Lleno');
         const statusClass = trip.estado === 'available' ? 'bg-bayau/10 text-bayau' : (trip.estado === 'few' ? 'bg-orange-100 text-orange-600' : 'bg-slate-100 text-slate-400');
 
         return `
             <tr class="clickable-row hover:bg-slate-50 transition border-b border-slate-50" onclick="goTripDetail('${trip.id}')">
                 <td class="px-8 py-6">
-                    <span class="block text-sm font-bold text-coronation uppercase tracking-tighter">${trip.fecha[currentLang]}</span>
-                    <span class="text-xs text-slate-400 uppercase tracking-widest font-black">${trip.noches} ${currentLang === 'es' ? 'noches' : 'nights'}</span>
+                    <span class="block text-sm font-bold text-coronation uppercase tracking-tighter">${trip.fecha['es']}</span>
+                    <span class="text-xs text-slate-400 uppercase tracking-widest font-black">${trip.noches} noches</span>
                 </td>
                 <td class="px-8 py-6">
-                    <span class="block text-base font-bold text-coronation uppercase tracking-tighter">${trip.destino[currentLang]}</span>
+                    <span class="block text-base font-bold text-coronation uppercase tracking-tighter">${trip.destino['es']}</span>
                     <span class="inline-block px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-widest ${statusClass} mt-1">${statusText}</span>
                 </td>
                 <td class="px-8 py-6 hidden md:table-cell">
-                    <span class="text-sm font-bold text-slate-400 uppercase tracking-widest">${trip.tipo[currentLang]}</span>
+                    <span class="text-sm font-bold text-slate-400 uppercase tracking-widest">${trip.tipo['es']}</span>
                 </td>
                 <td class="px-8 py-6 hidden md:table-cell">
-                    <span class="text-sm font-bold text-slate-400 uppercase tracking-widest">${trip.precio[currentLang]}</span>
+                    <span class="text-sm font-bold text-slate-400 uppercase tracking-widest">${trip.precio['es']}</span>
                 </td>
                 <td class="px-8 py-6 text-right">
                     <div class="detail-icon-btn">
@@ -350,21 +305,21 @@ function renderHomeCalendar() {
     }
 
     tbody.innerHTML = scheduledTrips.map(trip => {
-        const statusText = trip.estado === 'available' ? (currentLang === 'es' ? 'Disponible' : 'Available') : (trip.estado === 'few' ? (currentLang === 'es' ? 'Últimos cupos' : 'Last spots') : (currentLang === 'es' ? 'Lleno' : 'Full'));
+        const statusText = trip.estado === 'available' ? 'Disponible' : (trip.estado === 'few' ? 'Últimos cupos' : 'Lleno');
         const statusClass = trip.estado === 'available' ? 'bg-bayau/10 text-bayau' : (trip.estado === 'few' ? 'bg-orange-100 text-orange-600' : 'bg-slate-100 text-slate-400');
 
         return `
             <tr class="clickable-row hover:bg-slate-50 transition border-b border-slate-50" onclick="goTripDetail('${trip.id}')">
                 <td class="px-8 py-6">
-                    <span class="block text-sm font-bold text-coronation uppercase tracking-tighter">${trip.fecha[currentLang]}</span>
-                    <span class="text-xs text-slate-400 uppercase tracking-widest font-black">${trip.noches} ${currentLang === 'es' ? 'noches' : 'nights'}</span>
+                    <span class="block text-sm font-bold text-coronation uppercase tracking-tighter">${trip.fecha['es']}</span>
+                    <span class="text-xs text-slate-400 uppercase tracking-widest font-black">${trip.noches} noches</span>
                 </td>
                 <td class="px-8 py-6">
-                    <span class="block text-base font-bold text-coronation uppercase tracking-tighter">${trip.destino[currentLang]}</span>
+                    <span class="block text-base font-bold text-coronation uppercase tracking-tighter">${trip.destino['es']}</span>
                     <span class="inline-block px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-widest ${statusClass} mt-1">${statusText}</span>
                 </td>
                 <td class="px-8 py-6 hidden md:table-cell">
-                    <span class="text-sm font-bold text-slate-400 uppercase tracking-widest">${trip.tipo[currentLang]}</span>
+                    <span class="text-sm font-bold text-slate-400 uppercase tracking-widest">${trip.tipo['es']}</span>
                 </td>
                 <td class="px-8 py-6 text-right">
                     <div class="detail-icon-btn">
@@ -397,23 +352,23 @@ function goTripDetail(id) {
  */
 function renderTripDetail(trip) {
     document.getElementById('trip-hero-img').src = trip.imagen;
-    document.getElementById('trip-hero-tag').innerText = trip.tag[currentLang];
-    document.getElementById('trip-hero-title').innerText = trip.destino[currentLang];
-    document.getElementById('trip-hero-date').innerText = trip.fecha[currentLang];
-    document.getElementById('trip-hero-nights').innerText = `${trip.noches} ${currentLang === 'es' ? 'NOCHES' : 'NIGHTS'}`;
+    document.getElementById('trip-hero-tag').innerText = trip.tag['es'];
+    document.getElementById('trip-hero-title').innerText = trip.destino['es'];
+    document.getElementById('trip-hero-date').innerText = trip.fecha['es'];
+    document.getElementById('trip-hero-nights').innerText = `${trip.noches} NOCHES`;
 
-    document.getElementById('trip-price').innerText = trip.precio[currentLang];
-    document.getElementById('trip-cupos').innerText = `${trip.cuposLibres} ${currentLang === 'es' ? 'CUPOS DISPONIBLES' : 'SPOTS AVAILABLE'}`;
+    document.getElementById('trip-price').innerText = trip.precio['es'];
+    document.getElementById('trip-cupos').innerText = `${trip.cuposLibres} CUPOS DISPONIBLES`;
     
     // Descripción
     const descEl = document.getElementById('trip-description');
     if (descEl) {
-        descEl.innerText = trip.descripcion ? trip.descripcion[currentLang] : "";
+        descEl.innerText = trip.descripcion ? trip.descripcion['es'] : "";
         descEl.parentElement.classList.toggle('hidden', !trip.descripcion);
     }
 
     // Incluye
-    document.getElementById('trip-incluye').innerHTML = trip.incluye[currentLang].map(item => `
+    document.getElementById('trip-incluye').innerHTML = trip.incluye['es'].map(item => `
         <div class="flex items-center gap-3 p-3 bg-white rounded-2xl border border-slate-100 shadow-sm">
             <div class="w-8 h-8 rounded-xl bg-bayau/10 flex items-center justify-center text-bayau">
                 <i data-lucide="check" class="w-4 h-4"></i>
@@ -423,7 +378,7 @@ function renderTripDetail(trip) {
     `).join('');
 
     // Itinerario
-    document.getElementById('trip-itinerario').innerHTML = trip.itinerario[currentLang].map((step, idx) => `
+    document.getElementById('trip-itinerario').innerHTML = trip.itinerario['es'].map((step, idx) => `
         <div class="relative pl-5 md:pl-10 pb-0 md:pb-8 border-l-2 border-slate-100 last:pb-0">
             <div class="absolute -left-[11px] top-0 w-5 h-5 rounded-full bg-coronation border-4 border-white"></div>
             <div class="bg-white px-3 py-2 md:p-5 rounded-2xl md:rounded-3xl border border-slate-100 shadow-sm hover:shadow-md transition">
@@ -470,7 +425,7 @@ function renderTripDetail(trip) {
  */
 function renderPaquete(id) {
     if (!packagesData) return;
-    const pkg = packagesData[currentLang].find(p => p.id === id);
+    const pkg = packagesData['es'].find(p => p.id === id);
     if (!pkg) return;
     paqueteActivoId = id;
 
@@ -481,6 +436,13 @@ function renderPaquete(id) {
 
     // Precio
     document.getElementById('pkg-price').innerText = pkg.precio;
+
+    // Descripción del paquete
+    const descEl = document.getElementById('pkg-description');
+    if (descEl) {
+        descEl.innerText = pkg.descripcion || "";
+        descEl.classList.toggle('hidden', !pkg.descripcion);
+    }
 
     // Tab: Lo que incluye
     document.getElementById('pkg-tab-incluye').innerHTML = pkg.incluye.map(item => `
@@ -506,7 +468,7 @@ function renderPaquete(id) {
     }
 
     // Selector horizontal de paquetes
-    document.getElementById('pkg-selector').innerHTML = packagesData[currentLang].map(p => `
+    document.getElementById('pkg-selector').innerHTML = packagesData['es'].map(p => `
         <button
             onclick="renderPaquete('${p.id}')"
             class="${p.id === id
@@ -565,7 +527,7 @@ document.getElementById('pkgQuoteForm').addEventListener('submit', function (e) 
     e.preventDefault();
     const name = sanitize(document.getElementById('pkg-u-name').value.trim());
     const phone = sanitize(document.getElementById('pkg-u-phone').value.trim());
-    const pkg = packagesData[currentLang].find(p => p.id === paqueteActivoId);
+    const pkg = packagesData['es'].find(p => p.id === paqueteActivoId);
 
     const msg = encodeURIComponent(
         `¡Hola! Me interesa reservar el paquete de ${pkg.nombre}. Mi nombre es ${name} y mi número es ${phone}.`

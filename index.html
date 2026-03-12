@@ -86,21 +86,9 @@
                 </button>
             </nav>
 
-            <!-- Selector de idioma — Estilo Pill Premium -->
+            <!-- Iconos sociales y menú -->
             <div class="flex items-center space-x-4">
-                <div class="relative flex items-center bg-slate-100 rounded-full p-1 w-24 h-9 shadow-inner overflow-hidden"
-                    role="group" aria-label="Seleccionar idioma">
-                    <!-- Fondo deslizante dinámico (controlado por CSS activo) -->
-                    <div id="lang-indicator"
-                        class="absolute h-7 w-11 bg-coronation rounded-full transition-all duration-300 shadow-md transform translate-x-0">
-                    </div>
-
-                    <button onclick="setLanguage('es')" id="lang-es"
-                        class="relative z-10 flex-1 text-[10px] font-black transition-colors duration-300 text-white">ES</button>
-                    <button onclick="setLanguage('en')" id="lang-en"
-                        class="relative z-10 flex-1 text-[10px] font-black transition-colors duration-300 text-slate-400">EN</button>
-                </div>
-                <div class="flex items-center space-x-4 border-l pl-4 border-slate-200">
+                <div class="flex items-center space-x-4">
                     <a href="https://www.instagram.com/lamar.guate" target="_blank" rel="noopener noreferrer"
                         aria-label="Instagram" class="text-coronation hover:text-bayau transition">
                         <i data-lucide="instagram" class="w-4 h-4"></i>
@@ -464,6 +452,13 @@
             </div>
         </section>
 
+        <!-- Descripción debajo de la imagen -->
+        <section class="bg-slate-50 py-8 border-b border-slate-200">
+            <div class="container mx-auto px-4 max-w-4xl">
+                <p id="pkg-description" class="text-slate-500 leading-relaxed text-lg italic border-l-4 border-bayau/30 pl-6 py-2 hidden"></p>
+            </div>
+        </section>
+
         <!-- Selector horizontal de paquetes -->
         <div class="bg-white border-b sticky top-20 z-40">
             <div id="pkg-selector"
@@ -472,11 +467,13 @@
         </div>
 
         <!-- Detalle del paquete -->
-        <main class="container mx-auto px-4 py-12">
+        <main class="container mx-auto px-4 py-10 md:py-12">
+            
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
 
                 <!-- Panel principal con pestañas -->
                 <div class="lg:col-span-8">
+
                     <div class="bg-white rounded-[2rem] shadow-xl overflow-hidden border border-slate-100">
 
                         <div class="flex border-b overflow-x-auto no-scrollbar" role="tablist">
