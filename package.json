@@ -1,5 +1,11 @@
 {
+  "scripts": {
+    "start": "node server.js"
+  },
   "devDependencies": {
     "tailwindcss": "^4.2.1"
+  },
+  "dependencies": {
+    "express": "^5.2.1"
   }
 }

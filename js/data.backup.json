@@ -1,0 +1,191 @@
+{
+    "translations": {
+        "es": {
+            "nav_start": "INICIO",
+            "nav_packages": "PAQUETES",
+            "hero_title": "VIAJA, CONECTA,<br><span class='text-bayau'>VIVE LA MAR</span>",
+            "hero_subtitle": "Somos expertos en crear memorias. Desde las playas de Cancún hasta los rincones de Europa.",
+            "hero_btn_pkgs": "VER TODOS LOS PAQUETES",
+            "hero_btn_contact": "CONTACTAR AHORA",
+            "featured_title": "DESTINOS DESTACADOS",
+            "gallery_title": "GALERÍA DE VIAJEROS",
+            "gallery_subtitle": "Encuéntranos en Instagram como",
+            "form_title": "¿PLANEAMOS TU PRÓXIMO VIAJE?",
+            "form_name": "Tu Nombre",
+            "form_name_full": "Nombre completo",
+            "form_phone": "Tu WhatsApp",
+            "form_dest": "¿A dónde quieres ir?",
+            "form_submit": "SOLICITAR COTIZACIÓN POR WHATSAPP",
+            "pkg_tab_1": "Detalles e Inclusiones",
+            "pkg_tab_2": "Itinerario",
+            "pkg_tab_3": "Ubicación del Destino",
+            "pkg_price_label": "Inversión desde",
+            "pkg_custom": "Personaliza tu experiencia",
+            "pkg_btn_reserve": "RESERVAR POR WHATSAPP",
+            "footer_desc": "Hacemos realidad el viaje de tus sueños con la mejor asesoría personalizada de Guatemala.",
+            "footer_contact": "CONTACTO DIRECTO",
+            "footer_follow": "SÍGUENOS",
+            "footer_copy": "Guatemala • Viajes La Mar © 2026 • Expertos en Experiencias Seguras",
+            "more_details": "VER DETALLES",
+            "trip_incl_title": "¿Qué incluye este viaje?",
+            "trip_itin_title": "Itinerario del viaje",
+            "trip_loc_title": "Ubicación del Destino",
+            "trip_invest_title": "Inversión Final",
+            "trip_group_tag": "Salida Grupal",
+            "trip_group_tag_btn": "RESERVAR MI CUPO POR WHATSAPP",
+            "sched_tag_home": "PRÓXIMAS SALIDAS",
+            "sched_title_home": "CALENDARIO GENERAL",
+            "sched_sub_home": "Toda nuestra programación confirmada. Puedes segmentarla en el menú de navegación.",
+            "sched_sub_home_two": "Desliza para ver más",
+            "sched_title": "PROGRAMACIÓN",
+            "sched_col_date": "Fecha",
+            "sched_col_dest": "Destino",
+            "sched_col_type": "Tipo",
+            "sched_col_price": "Desde",
+            "sched_col_action": "Acción",
+            "sched_btn": "Ver detalle",
+            "cal_tab_grupal": "VIAJES GRUPALES",
+            "cal_tab_promo": "PROMOCIONES",
+            "sched_subtitle_group": "Fechas fijas confirmadas. Haz clic en <em>Ver detalle</em> para conocer el itinerario completo.",
+            "sched_subtitle_promo": "Mejores ofertas por tiempo limitado. Reserva rápido antes de que se agoten."
+        }
+    },
+    "packagesData": {
+        "es": [
+            {
+                "id": "cancun",
+                "nombre": "CANCÚN",
+                "tagline": "Caribe Mexicano • All Inclusive",
+                "precio": "Q.5,499.00",
+                "descripcion": "Disfruta de la mejor experiencia en las playas de Cancún con todo incluido. Ideal para relajarte frente al mar.",
+                "mapEmbed": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d238133.15236423!2d-86.95388647575305!3d21.121323215162445!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f4c2b05aef1157f%3A0xec60a6a61c62f210!2sCanc%C3%BAn%2C%20Quintana%20Roo%2C%20M%C3%A9xico!5e0!3m2!1ses!2sgt!4v1709325000000!5m2!1ses!2sgt",
+                "incluye": [
+                    "Vuelos GUA-CUN-GUA",
+                    "Hospedaje 5 estrellas",
+                    "Alimentación completa",
+                    "Bebidas ilimitadas",
+                    "Seguro de viaje"
+                ],
+                "itinerario": [
+                    {
+                        "t": "Llegada",
+                        "d": "Traslado al hotel y tarde libre."
+                    },
+                    {
+                        "t": "Relax",
+                        "d": "Día de playa y snorkel."
+                    }
+                ]
+            },
+            {
+                "id": "roatan",
+                "nombre": "ROATÁN",
+                "tagline": "Honduras • Paraíso Turquesa",
+                "precio": "Q.3,850.00",
+                "descripcion": "Escápate a la paradisíaca isla de Roatán. Relájate en sus playas cristalinas y descubre el impresionante arrecife de coral.",
+                "mapEmbed": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d245648.514652234!2d-86.533!3d16.32!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f69b14c330f8133%3A0xe48721c5f359c629!2sRoat%C3%A1n!5e0!3m2!1ses!2sgt!4v1709325000000!5m2!1ses!2sgt",
+                "incluye": [
+                    "Ferry o Vuelo",
+                    "Hotel frente al mar",
+                    "Desayunos",
+                    "Kayaks liberados"
+                ],
+                "itinerario": [
+                    {
+                        "t": "Check-in",
+                        "d": "Cóctel de bienvenida."
+                    },
+                    {
+                        "t": "Mar",
+                        "d": "Día en West Bay."
+                    }
+                ]
+            },
+            {
+                "id": "europa",
+                "nombre": "EUROPA",
+                "tagline": "Clásico • 15 Días",
+                "precio": "Q.22,400.00",
+                "descripcion": "Un inolvidable circuito de 15 días por los destinos clásicos de Europa. Recorre sus históricas calles y su inigualable cultura.",
+                "mapEmbed": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d167998.1080337305!2d2.27701984166888!3d48.858260203533604!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66e1f06e2b70f%3A0x40b82c3688c9460!2sPar%C3%ADs%2C%20Francia!5e0!3m2!1ses!2sgt!4v1709325000000!5m2!1ses!2sgt",
+                "incluye": [
+                    "Vuelos",
+                    "Hoteles céntricos",
+                    "Guía en español",
+                    "Museos incluidos"
+                ],
+                "itinerario": [
+                    {
+                        "t": "Madrid",
+                        "d": "Tour por la ciudad."
+                    },
+                    {
+                        "t": "París",
+                        "d": "Crucero por el Sena."
+                    }
+                ]
+            }
+        ]
+    },
+    "imagesMap": {
+        "cancun": "assets/images/cancun.jpg",
+        "roatan": "assets/images/roatan.jpg",
+        "europa": "assets/images/europa.jpg",
+        "machupicchu": "assets/images/machupicchu.jpg",
+        "panama": "assets/images/panama.jpg",
+        "colombia": "assets/images/colombia.jpg",
+        "xela": "assets/images/xela.jpg",
+        "quiche": "assets/images/quiche.jpg"
+    },
+    "scheduledTrips": [
+        {
+            "id": "promo-atitlan",
+            "categoria": "grupal",
+            "destino": {
+                "es": "ATITLAN"
+            },
+            "fecha": {
+                "es": "04 ABR 2026"
+            },
+            "noches": 1,
+            "tipo": {
+                "es": "Relajación"
+            },
+            "precio": {
+                "es": "Q.350.00"
+            },
+            "estado": "few",
+            "mapEmbed": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d154866.31236174333!2d-91.2013642!3d14.67881525!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85894ac7c083b493%3A0xa6e33f7d6b54910!2sLake%20Atitl%C3%A1n!5e1!3m2!1sen!2sgt!4v1773120642172!5m2!1sen!2sgt",
+            "tag": {
+                "es": "EL LAGO MAS HERMOSO DEL MUNDO"
+            },
+            "descripcion": {
+                "es": "Disfruta de una experiencia única en el lago más hermoso del mundo. Rodeado de volcanes y pueblos indígenas, Atitlán te ofrece paz, cultura y paisajes inigualables."
+            },
+            "cuposLibres": "",
+            "imagen": "assets/images/atitlan.jpg",
+            "incluye": {
+                "es": [
+                    "Vuelos",
+                    "Hotel Ciudad",
+                    "Tour Canal",
+                    "Traslados Compras"
+                ]
+            },
+            "itinerario": {
+                "es": [
+                    {
+                        "t": "Canal",
+                        "d": "Visita al centro de visitantes Miraflores."
+                    },
+                    {
+                        "t": "Albrook",
+                        "d": "Día completo de compras."
+                    }
+                ]
+            },
+            "Acciones": "",
+            "Acciones_1": ""
+        }
+    ]
+}
