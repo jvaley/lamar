@@ -8,6 +8,7 @@ const express = require('express');
 const fsP     = require('fs').promises;
 const path    = require('path');
 const os      = require('os');
+const multer  = require('multer');
 
 const app  = express();
 const PORT = process.env.PORT || 3000;
@@ -16,6 +17,35 @@ const ROOT        = __dirname;
 const DATA_FILE   = path.join(ROOT, 'js', 'data.json');
 const BACKUP_FILE = path.join(ROOT, 'js', 'data.backup.json');
 const ADMIN_HTML  = path.join(ROOT, 'admin', 'index.html');
+const IMAGES_DIR  = path.join(ROOT, 'assets', 'images');
+
+// Configuración de multer para subida de imágenes
+const storage = multer.diskStorage({
+    destination: async (req, file, cb) => {
+        try {
+            await fsP.mkdir(IMAGES_DIR, { recursive: true });
+            cb(null, IMAGES_DIR);
+        } catch (err) {
+            cb(err);
+        }
+    },
+    filename: (req, file, cb) => {
+        const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
+        const ext = path.extname(file.originalname);
+        cb(null, file.fieldname + '-' + uniqueSuffix + ext);
+    }
+});
+const upload = multer({ 
+    storage: storage,
+    limits: { fileSize: 5 * 1024 * 1024 }, // 5MB limit
+    fileFilter: (req, file, cb) => {
+        const allowedTypes = /jpeg|jpg|png|webp|gif/;
+        const mimetypes = allowedTypes.test(file.mimetype);
+        const extname = allowedTypes.test(path.extname(file.originalname).toLowerCase());
+        if (mimetypes && extname) return cb(null, true);
+        cb(new Error("Solo se permiten imágenes (jpg, png, webp, gif)"));
+    }
+});
 
 const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || 'admin123';
 
@@ -93,6 +123,22 @@ app.post('/api/data', async (req, res) => {
     } finally {
         if (lockAcquired) releaseLock();
     }
+});
+
+app.post('/api/upload', (req, res) => {
+    upload.single('image')(req, res, (err) => {
+        if (err instanceof multer.MulterError) {
+            return res.status(400).json({ error: `Error de Multer: ${err.message}` });
+        } else if (err) {
+            return res.status(400).json({ error: err.message });
+        }
+        if (!req.file) {
+            return res.status(400).json({ error: 'No se subió ninguna imagen' });
+        }
+        // Devolver la ruta relativa para guardar en data.json
+        const relativePath = path.join('assets', 'images', req.file.filename);
+        res.json({ success: true, path: relativePath });
+    });
 });
 
 app.use((_req, res) => res.status(404).json({ error: 'Ruta no encontrada' }));

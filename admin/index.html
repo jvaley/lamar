@@ -7,6 +7,8 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=League+Gothic&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- SheetJS para exportación a Excel -->
+    <script src="https://cdn.sheetjs.com/xlsx-latest/package/dist/xlsx.full.min.js"></script>
     <style>
         * { font-family: 'Montserrat', sans-serif; }
         .font-league { font-family: 'League Gothic', sans-serif; }
@@ -98,9 +100,14 @@
         <div id="tab-paquetes">
             <div class="flex justify-between items-center mb-6">
                 <h2 class="text-xl font-bold text-slate-700">Paquetes Destacados</h2>
-                <button onclick="openPaqueteModal(null)" class="btn-primary">
-                    <i data-lucide="plus" class="w-4 h-4"></i> Nuevo Paquete
-                </button>
+                <div class="flex gap-2">
+                    <button onclick="exportToExcel('paquetes')" class="btn-ghost">
+                        <i data-lucide="download" class="w-4 h-4"></i> Exportar Excel
+                    </button>
+                    <button onclick="openPaqueteModal(null)" class="btn-primary">
+                        <i data-lucide="plus" class="w-4 h-4"></i> Nuevo Paquete
+                    </button>
+                </div>
             </div>
             <div id="paquetes-list" class="space-y-4"></div>
         </div>
@@ -123,9 +130,14 @@
         <div id="tab-salidas" class="hidden">
             <div class="flex justify-between items-center mb-6">
                 <h2 class="text-xl font-bold text-slate-700">Salidas Programadas</h2>
-                <button onclick="openSalidaModal(null)" class="btn-primary">
-                    <i data-lucide="plus" class="w-4 h-4"></i> Nueva Salida
-                </button>
+                <div class="flex gap-2">
+                    <button onclick="exportToExcel('salidas')" class="btn-ghost">
+                        <i data-lucide="download" class="w-4 h-4"></i> Exportar Excel
+                    </button>
+                    <button onclick="openSalidaModal(null)" class="btn-primary">
+                        <i data-lucide="plus" class="w-4 h-4"></i> Nueva Salida
+                    </button>
+                </div>
             </div>
             <div id="salidas-list" class="space-y-4"></div>
         </div>
@@ -148,10 +160,35 @@
             </div>
             <div class="grid grid-cols-2 gap-4">
                 <div><label class="field-label">Tagline</label><input id="pkg-tagline" type="text" class="field-input" placeholder="Caribe • All Inclusive"></div>
-                <div><label class="field-label">Precio</label><input id="pkg-precio" type="text" class="field-input" placeholder="Q.5,499.00"></div>
+                <div>
+                    <label class="field-label">Precio</label>
+                    <div class="relative">
+                        <span class="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 font-bold text-sm">Q.</span>
+                        <input id="pkg-precio" type="text" class="field-input pl-8" placeholder="5,499.00">
+                    </div>
+                </div>
             </div>
             <div><label class="field-label">Descripción</label><textarea id="pkg-descripcion" rows="3" class="field-input"></textarea></div>
-            <div><label class="field-label">Mapa Embed URL</label><input id="pkg-mapEmbed" type="text" class="field-input" placeholder="https://www.google.com/maps/embed?..."></div>
+            <div><label class="field-label">Más Información (Complementaria)</label><textarea id="pkg-mas_info" rows="3" class="field-input" placeholder="Detalles adicionales del paquete..."></textarea></div>
+            <div>
+                <label class="field-label">Mapa Embed URL</label>
+                <div class="flex gap-2">
+                    <input id="pkg-mapEmbed" type="text" class="field-input flex-1" placeholder="https://www.google.com/maps/embed?...">
+                    <button onclick="searchMapEmbed('pkg-nombre')" class="btn-ghost" title="Buscar en Google Maps">
+                        <i data-lucide="search" class="w-4 h-4"></i>
+                    </button>
+                </div>
+            </div>
+            <div>
+                <label class="field-label">Imagen</label>
+                <div class="flex gap-2">
+                    <input id="pkg-imagen-url" type="text" class="field-input flex-1" placeholder="assets/images/cancun.jpg">
+                    <label class="btn-ghost cursor-pointer">
+                        <i data-lucide="upload" class="w-4 h-4"></i> Subir
+                        <input type="file" class="hidden" accept="image/*" onchange="handleFileUpload(this, 'pkg-imagen-url')">
+                    </label>
+                </div>
+            </div>
             <div>
                 <div class="flex justify-between items-center mb-2">
                     <label class="field-label" style="margin-bottom:0">¿Qué Incluye?</label>
@@ -194,7 +231,7 @@
             </div>
             <div class="grid grid-cols-2 gap-4">
                 <div><label class="field-label">Destino</label><input id="salida-destino" type="text" class="field-input" placeholder="CANCÚN"></div>
-                <div><label class="field-label">Fecha</label><input id="salida-fecha" type="text" class="field-input" placeholder="15 MAY 2026"></div>
+                <div><label class="field-label">Fecha</label><input id="salida-fecha" type="date" class="field-input"></div>
             </div>
             <div class="grid grid-cols-3 gap-4">
                 <div><label class="field-label">Noches</label><input id="salida-noches" type="number" class="field-input" placeholder="5"></div>
@@ -208,13 +245,37 @@
                 </div>
             </div>
             <div class="grid grid-cols-2 gap-4">
-                <div><label class="field-label">Precio</label><input id="salida-precio" type="text" class="field-input" placeholder="Q.3,500.00"></div>
+                <div>
+                    <label class="field-label">Precio</label>
+                    <div class="relative">
+                        <span class="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 font-bold text-sm">Q.</span>
+                        <input id="salida-precio" type="text" class="field-input pl-8" placeholder="3,500.00">
+                    </div>
+                </div>
                 <div><label class="field-label">Cupos Libres</label><input id="salida-cupos" type="text" class="field-input" placeholder="8"></div>
             </div>
             <div><label class="field-label">Tag (subtítulo hero)</label><input id="salida-tag" type="text" class="field-input" placeholder="EL CARIBE MÁS HERMOSO"></div>
-            <div><label class="field-label">Imagen (ruta)</label><input id="salida-imagen" type="text" class="field-input" placeholder="assets/images/cancun.jpg"></div>
-            <div><label class="field-label">Mapa Embed URL</label><input id="salida-mapEmbed" type="text" class="field-input" placeholder="https://www.google.com/maps/embed?..."></div>
+            <div>
+                <label class="field-label">Imagen</label>
+                <div class="flex gap-2">
+                    <input id="salida-imagen" type="text" class="field-input flex-1" placeholder="assets/images/cancun.jpg">
+                    <label class="btn-ghost cursor-pointer">
+                        <i data-lucide="upload" class="w-4 h-4"></i> Subir
+                        <input type="file" class="hidden" accept="image/*" onchange="handleFileUpload(this, 'salida-imagen')">
+                    </label>
+                </div>
+            </div>
+            <div>
+                <label class="field-label">Mapa Embed URL</label>
+                <div class="flex gap-2">
+                    <input id="salida-mapEmbed" type="text" class="field-input flex-1" placeholder="https://www.google.com/maps/embed?...">
+                    <button onclick="searchMapEmbed('salida-destino')" class="btn-ghost" title="Buscar en Google Maps">
+                        <i data-lucide="search" class="w-4 h-4"></i>
+                    </button>
+                </div>
+            </div>
             <div><label class="field-label">Descripción</label><textarea id="salida-descripcion" rows="3" class="field-input"></textarea></div>
+            <div><label class="field-label">Más Información (Complementaria)</label><textarea id="salida-mas_info" rows="3" class="field-input" placeholder="Detalles adicionales de la salida..."></textarea></div>
             <div>
                 <div class="flex justify-between items-center mb-2">
                     <label class="field-label" style="margin-bottom:0">¿Qué Incluye?</label>

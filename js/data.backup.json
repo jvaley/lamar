@@ -19,7 +19,8 @@
             "pkg_tab_1": "Detalles e Inclusiones",
             "pkg_tab_2": "Itinerario",
             "pkg_tab_3": "Ubicación del Destino",
-            "pkg_price_label": "Inversión desde",
+            "pkg_tab_4": "Más Información",
+            "pkg_price_label": "Precio Desde",
             "pkg_custom": "Personaliza tu experiencia",
             "pkg_btn_reserve": "RESERVAR POR WHATSAPP",
             "footer_desc": "Hacemos realidad el viaje de tus sueños con la mejor asesoría personalizada de Guatemala.",
@@ -30,12 +31,11 @@
             "trip_incl_title": "¿Qué incluye este viaje?",
             "trip_itin_title": "Itinerario del viaje",
             "trip_loc_title": "Ubicación del Destino",
-            "trip_invest_title": "Inversión Final",
+            "trip_invest_title": "Precio Desde",
             "trip_group_tag": "Salida Grupal",
             "trip_group_tag_btn": "RESERVAR MI CUPO POR WHATSAPP",
             "sched_tag_home": "PRÓXIMAS SALIDAS",
             "sched_title_home": "CALENDARIO GENERAL",
-            "sched_sub_home": "Toda nuestra programación confirmada. Puedes segmentarla en el menú de navegación.",
             "sched_sub_home_two": "Desliza para ver más",
             "sched_title": "PROGRAMACIÓN",
             "sched_col_date": "Fecha",
@@ -56,9 +56,11 @@
                 "id": "cancun",
                 "nombre": "CANCÚN",
                 "tagline": "Caribe Mexicano • All Inclusive",
-                "precio": "Q.5,499.00",
+                "precio": "Q.6,000",
                 "descripcion": "Disfruta de la mejor experiencia en las playas de Cancún con todo incluido. Ideal para relajarte frente al mar.",
-                "mapEmbed": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d238133.15236423!2d-86.95388647575305!3d21.121323215162445!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f4c2b05aef1157f%3A0xec60a6a61c62f210!2sCanc%C3%BAn%2C%20Quintana%20Roo%2C%20M%C3%A9xico!5e0!3m2!1ses!2sgt!4v1709325000000!5m2!1ses!2sgt",
+                "mas_info": "El paquete incluye acceso a áreas VIP del hotel, cenas temáticas todas las noches y equipo de snorkel de alta calidad. No olvides llevar bloqueador biodegradable para proteger el arrecife.",
+                "mapEmbed": "<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d149238.32962584766!2d-90.71955509825656!3d14.677942300000003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85899f9efef960d1%3A0x20912c10e0ba1646!2sMercado%20del%20Milagro!5e1!3m2!1ses!2sgt!4v1774315334456!5m2!1ses!2sgt\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+                "imagen": "",
                 "incluye": [
                     "Vuelos GUA-CUN-GUA",
                     "Hospedaje 5 estrellas",
@@ -99,7 +101,8 @@
                         "t": "Mar",
                         "d": "Día en West Bay."
                     }
-                ]
+                ],
+                "mas_info": "Roatán es famoso por sus arrecifes de coral. Este paquete incluye tour guiado de buceo para principiantes. Recomendamos traer cámara acuática para capturar la vida marina."
             },
             {
                 "id": "europa",
@@ -123,7 +126,8 @@
                         "t": "París",
                         "d": "Crucero por el Sena."
                     }
-                ]
+                ],
+                "mas_info": "Este circuito incluye traslados en autobús de lujo con Wi-Fi, audioguías en todos los monumentos y propinas para maleteros. Se recomienda calzado cómodo para las caminatas en cascos históricos."
             }
         ]
     },
@@ -143,6 +147,9 @@
             "categoria": "grupal",
             "destino": {
                 "es": "ATITLAN"
+            },
+            "mas_info": {
+                "es": "Disfruta de uno de los lagos más bellos del mundo. Incluye visita a San Juan La Laguna para conocer los telares típicos y el proceso del chocolate."
             },
             "fecha": {
                 "es": "04 ABR 2026"
@@ -186,6 +193,43 @@
             },
             "Acciones": "",
             "Acciones_1": ""
+        },
+        {
+            "id": "quiche",
+            "categoria": "grupal",
+            "destino": {
+                "es": "QUICHE"
+            },
+            "fecha": {
+                "es": "26 JUNIO 2026"
+            },
+            "noches": 2,
+            "tipo": {
+                "es": "Relajación"
+            },
+            "precio": {
+                "es": "Q.350.00"
+            },
+            "estado": "available",
+            "cuposLibres": "8",
+            "tag": {
+                "es": "EL LUGAR ENCANTADO"
+            },
+            "imagen": "",
+            "mapEmbed": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d154866.31236174333!2d-91.2013642!3d14.67881525!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85894ac7c083b493%3A0xa6e33f7d6b54910!2sLake%20Atitl%C3%A1n!5e1!3m2!1sen!2sgt!4v1773120642172!5m2!1sen!2sgt",
+            "descripcion": {
+                "es": "QUICHE EL LUGAR DEL MUNDO MAYA"
+            },
+            "incluye": {
+                "es": [
+                    "DESAYUNO",
+                    "ALMUERZO",
+                    "ACAMPAR"
+                ]
+            },
+            "itinerario": {
+                "es": []
+            }
         }
     ]
 }

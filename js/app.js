@@ -37,6 +37,19 @@ function sanitize(text) {
 ------------------------------------------ */
 // Eliminado: Traducciones dinámicas ya no son necesarias ya que el sitio es 100% en español.
 
+/**
+ * Desplaza suavemente a la sección de contacto.
+ */
+function goToContacto() {
+    showPage('inicio');
+    setTimeout(() => {
+        const section = document.getElementById('seccion-cotizacion');
+        if (section) {
+            section.scrollIntoView({ behavior: 'smooth' });
+        }
+    }, 100);
+}
+
 /* ------------------------------------------
    Navegación entre páginas (SPA)
 ------------------------------------------ */
@@ -88,6 +101,7 @@ function showPage(pageId) {
         }
 
         // Renderizar tabla
+        updateTipoFilterOptions(pageId === 'grupales' ? 'grupal' : 'promocion');
         renderCalendar();
     }
 
@@ -250,13 +264,20 @@ let currentCalendarTab = 'grupal'; // Pestaña por defecto controlada desde show
  */
 function renderCalendar() {
     const tbody = document.getElementById('calendar-table-body');
+    const tipoFilter = document.getElementById('tipo-filter')?.value || 'all';
+
     if (!tbody || !scheduledTrips) return;
 
     // Filtrar los viajes según la pestaña activa
-    const filteredTrips = scheduledTrips.filter(trip => trip.categoria === currentCalendarTab);
+    let filteredTrips = scheduledTrips.filter(trip => trip.categoria === currentCalendarTab);
+
+    // Filtrar por tipo si no es "all"
+    if (tipoFilter !== 'all') {
+        filteredTrips = filteredTrips.filter(trip => trip.tipo['es'] === tipoFilter);
+    }
 
     if (filteredTrips.length === 0) {
-        tbody.innerHTML = `<tr><td colspan="4" class="px-8 py-10 text-center text-slate-400 font-bold tracking-widest uppercase text-xs">No hay viajes programados en esta categoría actualmente.</td></tr>`;
+        tbody.innerHTML = `<tr><td colspan="5" class="px-8 py-10 text-center text-slate-400 font-bold tracking-widest uppercase text-xs">No hay viajes programados en esta categoría actualmente.</td></tr>`;
         return;
     }
 
@@ -293,6 +314,38 @@ function renderCalendar() {
 }
 
 /**
+ * Actualiza las opciones del filtro de tipo basado en los viajes disponibles
+ */
+function updateTipoFilterOptions(categoria) {
+    const filter = document.getElementById('tipo-filter');
+    if (!filter || !scheduledTrips) return;
+
+    // Obtener tipos únicos para la categoría actual
+    const tipos = new Set();
+    scheduledTrips.filter(t => t.categoria === categoria).forEach(t => {
+        if (t.tipo && t.tipo['es']) {
+            tipos.add(t.tipo['es']);
+        }
+    });
+
+    const currentFilterValue = filter.value;
+    
+    let html = '<option value="all">Todos los tipos</option>';
+    Array.from(tipos).sort().forEach(tipo => {
+        html += `<option value="${tipo}">${tipo}</option>`;
+    });
+
+    filter.innerHTML = html;
+    
+    // Intentar mantener el valor si aún existe, sino volver a "all"
+    if (tipos.has(currentFilterValue)) {
+        filter.value = currentFilterValue;
+    } else {
+        filter.value = 'all';
+    }
+}
+
+/**
  * Renderiza la tabla completa de programación en la Página Principal (Home).
  */
 function renderHomeCalendar() {
@@ -320,6 +373,9 @@ function renderHomeCalendar() {
                 </td>
                 <td class="px-8 py-6 hidden md:table-cell">
                     <span class="text-sm font-bold text-slate-400 uppercase tracking-widest">${trip.tipo['es']}</span>
+                </td>
+                <td class="px-8 py-6">
+                    <span class="text-sm font-bold text-slate-400 uppercase tracking-widest">${trip.precio['es']}</span>
                 </td>
                 <td class="px-8 py-6 text-right">
                     <div class="detail-icon-btn">
@@ -391,6 +447,18 @@ function renderTripDetail(trip) {
         </div>
     `).join('');
 
+    // Más Información
+    const masInfoEl = document.getElementById('trip-masinfo');
+    const masInfoContainer = document.getElementById('trip-masinfo-container');
+    if (masInfoEl && masInfoContainer) {
+        if (trip.mas_info && trip.mas_info['es']) {
+            masInfoEl.innerText = trip.mas_info['es'];
+            masInfoContainer.classList.remove('hidden');
+        } else {
+            masInfoContainer.classList.add('hidden');
+        }
+    }
+
     // Botón de WhatsApp
     const btn = document.getElementById('btn-reserve-trip');
     if (btn) {
@@ -461,6 +529,12 @@ function renderPaquete(id) {
         </div>
     `).join('');
 
+    // Tab: Más Información
+    const masInfoEl = document.getElementById('pkg-tab-masinfo');
+    if (masInfoEl) {
+        masInfoEl.innerText = pkg.mas_info || "Próximamente más información sobre este paquete.";
+    }
+
     // Mapa
     const mapFrame = document.getElementById('pkg-map-frame');
     if (mapFrame) {
@@ -490,18 +564,22 @@ function renderPaquete(id) {
 function switchPkgTab(tab) {
     const inclPanel = document.getElementById('pkg-tab-incluye');
     const itinPanel = document.getElementById('pkg-tab-itinerario');
+    const masInfoPanel = document.getElementById('pkg-tab-masinfo');
     const mapaPanel = document.getElementById('pkg-tab-mapa');
 
     const inclBtn = document.getElementById('btn-pkg-incluye');
     const itinBtn = document.getElementById('btn-pkg-itinerario');
+    const masInfoBtn = document.getElementById('btn-pkg-masinfo');
     const mapaBtn = document.getElementById('btn-pkg-mapa');
 
     if (inclPanel) inclPanel.classList.toggle('hidden', tab !== 'incluye');
     if (itinPanel) itinPanel.classList.toggle('hidden', tab !== 'itinerario');
+    if (masInfoPanel) masInfoPanel.classList.toggle('hidden', tab !== 'masinfo');
     if (mapaPanel) mapaPanel.classList.toggle('hidden', tab !== 'mapa');
 
     if (inclBtn) inclBtn.classList.toggle('tab-active', tab === 'incluye');
     if (itinBtn) itinBtn.classList.toggle('tab-active', tab === 'itinerario');
+    if (masInfoBtn) masInfoBtn.classList.toggle('tab-active', tab === 'masinfo');
     if (mapaBtn) mapaBtn.classList.toggle('tab-active', tab === 'mapa');
 }
 

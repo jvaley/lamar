@@ -6,6 +6,102 @@ let sessionPwd = '';
 
 lucide.createIcons();
 
+/* ── Helpers ── */
+function dateToJSON(dateStr) {
+    if (!dateStr) return '';
+    const months = ['ENE','FEB','MAR','ABR','MAY','JUN','JUL','AGO','SEP','OCT','NOV','DIC'];
+    const [y, m, d] = dateStr.split('-');
+    return `${d} ${months[parseInt(m)-1]} ${y}`;
+}
+
+function dateToInput(jsonDate) {
+    if (!jsonDate) return '';
+    const months = {'ENE':'01','FEB':'02','MAR':'03','ABR':'04','MAY':'05','JUN':'06','JUL':'07','AGO':'08','SEP':'09','OCT':'10','NOV':'11','DIC':'12'};
+    const parts = jsonDate.split(' ');
+    if (parts.length !== 3) return '';
+    const d = parts[0].padStart(2, '0');
+    const m = months[parts[1].toUpperCase()] || '01';
+    const y = parts[2];
+    return `${y}-${m}-${d}`;
+}
+
+async function handleFileUpload(input, targetId) {
+    const file = input.files[0];
+    if (!file) return;
+    const formData = new FormData();
+    formData.append('image', file);
+    try {
+        const res = await fetch(`${API}/api/upload`, {
+            method: 'POST',
+            body: formData
+        });
+        const data = await res.json();
+        if (res.ok) {
+            document.getElementById(targetId).value = data.path;
+            showToast('Imagen subida correctamente.', 'success');
+        } else {
+            showToast(data.error || 'Error al subir imagen', 'error');
+        }
+    } catch (e) {
+        showToast('Error de conexión al subir imagen', 'error');
+    }
+}
+
+function searchMapEmbed(fieldId) {
+    const val = document.getElementById(fieldId).value.trim();
+    if (!val) { showToast('Ingresa un nombre o destino primero.', 'info'); return; }
+    const url = `https://www.google.com/maps/search/${encodeURIComponent(val)}`;
+    window.open(url, '_blank');
+    showToast('Buscando en Google Maps. Haz clic en "Compartir" > "Incorporar un mapa" para obtener el código.', 'info');
+}
+
+function exportToExcel(type) {
+    if (!globalData) return;
+    let data = [];
+    let filename = '';
+
+    if (type === 'paquetes') {
+        filename = 'Paquetes_Viajes_La_Mar.xlsx';
+        data = globalData.packagesData.es.map(p => ({
+            'ID': p.id,
+            'Nombre': p.nombre,
+            'Tagline': p.tagline,
+            'Precio': p.precio,
+            'Descripción': p.descripcion,
+            'Más Info': p.mas_info,
+            'Incluye': (p.incluye || []).join(', '),
+            'Días Itinerario': (p.itinerario || []).length
+        }));
+    } else {
+        filename = 'Salidas_Viajes_La_Mar.xlsx';
+        data = globalData.scheduledTrips.map(t => ({
+            'ID': t.id,
+            'Categoría': t.categoria,
+            'Destino': t.destino.es,
+            'Fecha': t.fecha.es,
+            'Noches': t.noches,
+            'Tipo': t.tipo.es,
+            'Precio': t.precio.es,
+            'Estado': t.estado,
+            'Cupos': t.cuposLibres,
+            'Tag': t.tag.es,
+            'Descripción': t.descripcion.es,
+            'Más Info': t.mas_info.es
+        }));
+    }
+
+    const worksheet = XLSX.utils.json_to_sheet(data);
+    const workbook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(workbook, worksheet, type.charAt(0).toUpperCase() + type.slice(1));
+
+    // Ajustar anchos de columna básicos
+    const wscols = Object.keys(data[0] || {}).map(() => ({ wch: 20 }));
+    worksheet['!cols'] = wscols;
+
+    XLSX.writeFile(workbook, filename);
+    showToast(`Excel de ${type} exportado.`, 'success');
+}
+
 /* ── Auth ── */
 document.getElementById('login-form').addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -158,9 +254,11 @@ function openPaqueteModal(idx) {
     document.getElementById('pkg-id').value = pkg.id;
     document.getElementById('pkg-nombre').value = pkg.nombre;
     document.getElementById('pkg-tagline').value = pkg.tagline;
-    document.getElementById('pkg-precio').value = pkg.precio;
+    document.getElementById('pkg-precio').value = pkg.precio.replace('Q.', '').trim();
     document.getElementById('pkg-descripcion').value = pkg.descripcion || '';
+    document.getElementById('pkg-mas_info').value = pkg.mas_info || '';
     document.getElementById('pkg-mapEmbed').value = pkg.mapEmbed || '';
+    document.getElementById('pkg-imagen-url').value = pkg.imagen || '';
     const inclEl = document.getElementById('pkg-incluye-list'); inclEl.innerHTML = '';
     (pkg.incluye || []).forEach(item => inclEl.appendChild(makePkgIncluyeRow(item)));
     const itinEl = document.getElementById('pkg-itin-list'); itinEl.innerHTML = '';
@@ -194,9 +292,11 @@ function savePaquete() {
         id: document.getElementById('pkg-id').value.trim(),
         nombre: document.getElementById('pkg-nombre').value.trim(),
         tagline: document.getElementById('pkg-tagline').value.trim(),
-        precio: document.getElementById('pkg-precio').value.trim(),
+        precio: 'Q.' + document.getElementById('pkg-precio').value.trim(),
         descripcion: document.getElementById('pkg-descripcion').value.trim(),
+        mas_info: document.getElementById('pkg-mas_info').value.trim(),
         mapEmbed: document.getElementById('pkg-mapEmbed').value.trim(),
+        imagen: document.getElementById('pkg-imagen-url').value.trim(),
         incluye: [...inclRows].map(i => i.value.trim()).filter(Boolean),
         itinerario: [...itinRows].map(row => { const inp = row.querySelectorAll('input'); return { t: inp[0].value.trim(), d: inp[1].value.trim() }; }).filter(it => it.t || it.d)
     };
@@ -275,16 +375,17 @@ function openSalidaModal(idx) {
     document.getElementById('salida-id').value = trip.id;
     document.getElementById('salida-categoria').value = trip.categoria || 'grupal';
     document.getElementById('salida-destino').value = trip.destino?.es || '';
-    document.getElementById('salida-fecha').value = trip.fecha?.es || '';
+    document.getElementById('salida-fecha').value = dateToInput(trip.fecha?.es);
     document.getElementById('salida-noches').value = trip.noches || 1;
     document.getElementById('salida-tipo').value = trip.tipo?.es || '';
-    document.getElementById('salida-precio').value = trip.precio?.es || '';
+    document.getElementById('salida-precio').value = (trip.precio?.es || '').replace('Q.', '').trim();
     document.getElementById('salida-estado').value = trip.estado || 'available';
     document.getElementById('salida-cupos').value = trip.cuposLibres || '';
     document.getElementById('salida-tag').value = trip.tag?.es || '';
     document.getElementById('salida-imagen').value = trip.imagen || '';
     document.getElementById('salida-mapEmbed').value = trip.mapEmbed || '';
     document.getElementById('salida-descripcion').value = trip.descripcion?.es || '';
+    document.getElementById('salida-mas_info').value = trip.mas_info?.es || '';
     const inclEl = document.getElementById('salida-incluye-list'); inclEl.innerHTML = '';
     (trip.incluye?.es || []).forEach(item => inclEl.appendChild(makeSalidaIncluyeRow(item)));
     const itinEl = document.getElementById('salida-itin-list'); itinEl.innerHTML = '';
@@ -319,16 +420,17 @@ function saveSalida() {
     const trip = {
         id, categoria: document.getElementById('salida-categoria').value,
         destino: { es: document.getElementById('salida-destino').value.trim() },
-        fecha: { es: document.getElementById('salida-fecha').value.trim() },
+        fecha: { es: dateToJSON(document.getElementById('salida-fecha').value) },
         noches: parseInt(document.getElementById('salida-noches').value) || 1,
         tipo: { es: document.getElementById('salida-tipo').value.trim() },
-        precio: { es: document.getElementById('salida-precio').value.trim() },
+        precio: { es: 'Q.' + document.getElementById('salida-precio').value.trim() },
         estado: document.getElementById('salida-estado').value,
         cuposLibres: document.getElementById('salida-cupos').value.trim(),
         tag: { es: document.getElementById('salida-tag').value.trim() },
         imagen: document.getElementById('salida-imagen').value.trim(),
         mapEmbed: document.getElementById('salida-mapEmbed').value.trim(),
         descripcion: { es: document.getElementById('salida-descripcion').value.trim() },
+        mas_info: { es: document.getElementById('salida-mas_info').value.trim() },
         incluye: { es: [...inclRows].map(i => i.value.trim()).filter(Boolean) },
         itinerario: { es: [...itinRows].map(row => { const inp = row.querySelectorAll('input'); return { t: inp[0].value.trim(), d: inp[1].value.trim() }; }).filter(it => it.t || it.d) }
     };
